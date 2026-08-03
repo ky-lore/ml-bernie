@@ -5,6 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 <title>M. L. Bernie Co. — Tire Shop Supplies &amp; Equipment | Since 19__ · Gardena, CA</title>
 <meta name="description" content="California's oldest and first tire shop supply distributor. Supplies & equipment for tire shops, resellers, and mobile road service across Southern California. Call (310) 965-6422." />
+<link rel="icon" type="image/png" href="logo-mark-gold.png" />
 <link rel="preconnect" href="https://fonts.googleapis.com" />
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
 <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@400;500;600;700&family=Barlow:ital,wght@0,400;0,500;0,600;1,600;1,700;1,900&family=Barlow+Semi+Condensed:ital,wght@1,700;1,800&display=swap" rel="stylesheet" />
@@ -85,6 +86,12 @@
   .nav-phone span{color:var(--gold);font-size:12px;display:block;letter-spacing:.12em;font-weight:500}
   .burger{display:none;flex-direction:column;gap:5px;cursor:pointer;padding:8px}
   .burger span{width:26px;height:2px;background:#fff}
+  .brand-logo{height:54px;width:auto;display:block}
+  /* gold tire-emblem watermark used across dark sections */
+  .wm-mark{position:absolute;pointer-events:none;user-select:none;opacity:.06;z-index:0}
+  .band.wm-host{overflow:hidden}
+  .band .wrap{position:relative;z-index:1}
+  .emblem{display:block;height:58px;width:auto;margin-bottom:24px}
 
   /* ============ HERO ============ */
   .hero{
@@ -181,7 +188,9 @@
   .split .media .est{position:absolute;left:0;bottom:0;background:var(--gold);color:#1a1204;padding:22px 30px;font-family:'Oswald',sans-serif}
   .split .media .est .yr{font-size:44px;font-weight:700;line-height:.9;font-style:italic;font-family:'Barlow Semi Condensed',sans-serif}
   .split .media .est .lb{font-size:11px;letter-spacing:.16em;text-transform:uppercase;margin-top:4px}
-  .split .body{background:var(--panel);padding:70px 60px;display:flex;flex-direction:column;justify-content:center}
+  .split .body{background:var(--panel);padding:70px 60px;display:flex;flex-direction:column;justify-content:center;position:relative;overflow:hidden}
+  .split .body .wm-mark{width:min(560px,90%);right:-90px;bottom:-70px;opacity:.05}
+  .body-inner{position:relative;z-index:1;display:flex;flex-direction:column}
   .split .body h2{font-size:clamp(30px,4vw,46px);color:#fff}
   .split .body h2 em{color:var(--gold);font-style:italic;font-family:'Barlow Semi Condensed',sans-serif}
   .split .body p{margin-top:22px;color:#b9b8b3;font-size:17px}
@@ -248,8 +257,7 @@
   /* ============ FOOTER ============ */
   footer.ft{background:#08080a;border-top:1px solid var(--line);padding:64px 0 30px}
   .ft-top{display:grid;grid-template-columns:1.4fr 1fr 1fr;gap:40px;padding-bottom:44px;border-bottom:1px solid var(--line)}
-  .ft .logo-chip{background:var(--paper);display:inline-block;padding:16px 20px;border-radius:3px}
-  .ft .logo-chip img{width:210px}
+  .ft-logo{width:240px;height:auto;display:block}
   .ft-col h4{font-family:'Oswald',sans-serif;text-transform:uppercase;font-size:13px;letter-spacing:.14em;color:var(--gold);margin-bottom:18px}
   .ft-col a,.ft-col p{display:block;color:#9d9c97;font-size:15px;margin-bottom:12px}
   .ft-col a:hover{color:#fff}
@@ -273,6 +281,8 @@
     .burger{display:flex}
     .band{padding:72px 0}
     .split .body{padding:44px 26px}
+    .brand-logo{height:44px}
+    .emblem{height:48px;margin-bottom:18px}
     .cat-grid{grid-template-columns:1fr}
     .serve-grid{grid-template-columns:1fr}
     .prod-grid{grid-template-columns:repeat(2,1fr);gap:14px}
@@ -300,12 +310,7 @@
 <header class="nav">
   <div class="wrap">
     <a class="brand" href="#top">
-      <!-- CSS wordmark for dark bg; swap for white/knockout PNG when supplied -->
-      <img class="mark" src="logo.png" alt="" style="background:#f5f3ed;border-radius:4px;padding:4px" />
-      <div>
-        <div class="wm">M.L. BERNIE <span>CO.</span></div>
-        <div class="tag">Tire Shop Supplies &amp; Equipment</div>
-      </div>
+      <img class="brand-logo" src="logo-white.png" alt="M. L. Bernie Co. — Tire Shop Supplies &amp; Equipment" />
     </a>
     <nav class="links">
       <a href="#carry">What We Carry</a>
@@ -328,6 +333,7 @@
   <div class="wrap">
     <div class="hero-grid">
       <div class="hero-copy">
+        <img class="emblem" src="logo-mark-light.png" alt="" aria-hidden="true" />
         <div class="hero-badge">◆ California's First &amp; Oldest Tire Supply House</div>
         <h1>Four generations of shops have counted on <em>M.L. Bernie</em>.</h1>
         <div class="estd">Est. 1940s — Gardena, California</div>
@@ -370,7 +376,8 @@
 </div>
 
 <!-- ============ WHAT WE CARRY ============ -->
-<section class="band paper" id="carry">
+<section class="band paper wm-host" id="carry">
+  <img class="wm-mark" src="logo-mark-gold.png" alt="" aria-hidden="true" style="width:min(520px,48%);right:-80px;top:-70px;opacity:.07" />
   <div class="wrap">
     <div class="sec-head">
       <span class="eyebrow">What We Carry</span>
@@ -483,6 +490,8 @@
       <div class="est"><div class="yr">Since<br>the 40s</div><div class="lb">Gardena · California</div></div>
     </div>
     <div class="body">
+      <img class="wm-mark" src="logo-mark-gold.png" alt="" aria-hidden="true" />
+      <div class="body-inner">
       <span class="eyebrow">Our Story</span>
       <h2 style="margin-top:16px">The <em>original</em> name in California tire supply.</h2>
       <p>Founded in the 1940s, M.&nbsp;L.&nbsp;Bernie Co. was California's first — and remains its oldest — tire shop supply distributor. It's personal here: our family worked this business for more than 40 years before taking ownership, and we run it the same way our customers build their own shops — by showing up, keeping our word, and stocking what the job actually needs.</p>
@@ -492,12 +501,14 @@
         <div class="u"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 6L9 17l-5-5"/></svg><div><b>Real people, one phone call away</b><span>Talk to someone who knows the product — not a call center.</span></div></div>
       </div>
       <a class="btn btn-gold" href="#contact" style="margin-top:36px;align-self:flex-start">Talk to Our Team</a>
+      </div>
     </div>
   </div>
 </section>
 
 <!-- ============ WHO WE SERVE ============ -->
-<section class="band" id="serve">
+<section class="band wm-host" id="serve">
+  <img class="wm-mark" src="logo-mark-gold.png" alt="" aria-hidden="true" style="width:min(480px,50%);left:-70px;bottom:-80px;opacity:.05" />
   <div class="wrap">
     <div class="sec-head">
       <span class="eyebrow">Who We Serve</span>
@@ -534,6 +545,7 @@
 
 <!-- ============ CTA BAND ============ -->
 <section class="cta-band">
+  <img class="wm-mark" src="logo-mark-gold.png" alt="" aria-hidden="true" style="width:min(520px,55%);left:-70px;bottom:-90px;opacity:.08" />
   <div class="wrap">
     <div>
       <h2>Need it for the job? <em>We've got it.</em></h2>
@@ -547,7 +559,8 @@
 </section>
 
 <!-- ============ CONTACT ============ -->
-<section class="band" id="contact">
+<section class="band wm-host" id="contact">
+  <img class="wm-mark" src="logo-mark-gold.png" alt="" aria-hidden="true" style="width:min(460px,45%);right:-60px;top:-60px;opacity:.05" />
   <div class="wrap">
     <div class="contact">
       <div class="info">
@@ -589,7 +602,7 @@
   <div class="wrap">
     <div class="ft-top">
       <div class="ft-col">
-        <div class="logo-chip"><img src="logo.png" alt="M. L. Bernie Co." /></div>
+        <img class="ft-logo" src="logo-white.png" alt="M. L. Bernie Co." />
         <p class="ft-blurb">California's first and oldest tire shop supply distributor. Supplying tire shops, resellers, and road-service crews across Southern California.</p>
       </div>
       <div class="ft-col">
