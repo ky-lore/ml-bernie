@@ -1,0 +1,620 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>M. L. Bernie Co. — Tire Shop Supplies &amp; Equipment | Since 19__ · Gardena, CA</title>
+<meta name="description" content="California's oldest and first tire shop supply distributor. Supplies & equipment for tire shops, resellers, and mobile road service across Southern California. Call (310) 965-6422." />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Oswald:wght@400;500;600;700&family=Barlow:ital,wght@0,400;0,500;0,600;1,600;1,700;1,900&family=Barlow+Semi+Condensed:ital,wght@1,700;1,800&display=swap" rel="stylesheet" />
+<style>
+  :root{
+    --black:#0c0c0d;
+    --ink:#141416;
+    --panel:#1a1a1d;
+    --line:#2a2a2e;
+    --gold:#c99a3b;
+    --gold-bright:#e4bd63;
+    --gold-deep:#a67c2b;
+    --smoke:#8a8a90;
+    --paper:#f4f2 ec;
+    --paper:#f5f3ed;
+    --paper-2:#e9e6dd;
+    --white:#ffffff;
+    --maxw:1200px;
+    --ease:cubic-bezier(.2,.7,.2,1);
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  html{scroll-behavior:smooth}
+  body{
+    font-family:'Barlow',system-ui,sans-serif;
+    background:var(--black);
+    color:#e7e6e2;
+    line-height:1.6;
+    -webkit-font-smoothing:antialiased;
+    overflow-x:hidden;
+  }
+  h1,h2,h3,.condensed{font-family:'Oswald','Barlow Semi Condensed',sans-serif;font-weight:700;line-height:1.02;letter-spacing:-.5px;text-transform:uppercase}
+  .italic{font-family:'Barlow Semi Condensed',sans-serif;font-style:italic;font-weight:800}
+  a{color:inherit;text-decoration:none}
+  img{max-width:100%;display:block}
+  .wrap{max-width:var(--maxw);margin:0 auto;padding:0 24px}
+  section{position:relative}
+  .eyebrow{
+    font-family:'Oswald',sans-serif;text-transform:uppercase;letter-spacing:.28em;
+    font-size:12px;font-weight:600;color:var(--gold);display:inline-flex;align-items:center;gap:12px;
+  }
+  .eyebrow::before{content:"";width:28px;height:2px;background:var(--gold)}
+  .btn{
+    display:inline-flex;align-items:center;gap:10px;font-family:'Oswald',sans-serif;
+    text-transform:uppercase;letter-spacing:.08em;font-weight:600;font-size:15px;
+    padding:16px 30px;border-radius:2px;transition:.25s var(--ease);cursor:pointer;border:2px solid transparent;
+  }
+  .btn-gold{background:var(--gold);color:#1a1204}
+  .btn-gold:hover{background:var(--gold-bright);transform:translateY(-2px)}
+  .btn-ghost{border-color:#3a3a40;color:#fff;background:transparent}
+  .btn-ghost:hover{border-color:var(--gold);color:var(--gold)}
+  .btn svg{width:16px;height:16px}
+
+  /* ============ TOP BAR ============ */
+  .topbar{
+    background:linear-gradient(90deg,var(--gold-deep),var(--gold));
+    color:#231802;font-family:'Oswald',sans-serif;font-size:12.5px;font-weight:500;
+    text-transform:uppercase;letter-spacing:.06em;
+  }
+  .topbar .wrap{display:flex;justify-content:space-between;align-items:center;gap:16px;min-height:38px;padding-top:6px;padding-bottom:6px}
+  .topbar strong{font-weight:700}
+  .topbar .tb-right{display:flex;gap:22px;align-items:center;flex-wrap:wrap;justify-content:flex-end}
+  .topbar a{border-bottom:1px solid transparent}
+  .topbar a:hover{border-color:#231802}
+
+  /* ============ NAV ============ */
+  header.nav{position:sticky;top:0;z-index:60;background:rgba(12,12,13,.86);backdrop-filter:blur(10px);border-bottom:1px solid var(--line)}
+  .nav .wrap{display:flex;align-items:center;justify-content:space-between;min-height:76px}
+  .brand{display:flex;align-items:center;gap:14px}
+  .brand .mark{width:44px;height:44px;flex:none}
+  .brand .wm{font-family:'Barlow Semi Condensed',sans-serif;font-style:italic;font-weight:800;font-size:24px;letter-spacing:-.5px;color:#fff;line-height:1}
+  .brand .wm span{color:var(--gold)}
+  .brand .tag{font-family:'Oswald',sans-serif;font-size:9.5px;letter-spacing:.24em;color:var(--smoke);text-transform:uppercase;margin-top:3px}
+  nav.links{display:flex;gap:30px;align-items:center}
+  nav.links a{font-family:'Oswald',sans-serif;text-transform:uppercase;font-size:14px;letter-spacing:.05em;font-weight:500;color:#d7d6d2;transition:.2s}
+  nav.links a:hover{color:var(--gold)}
+  .nav-cta{display:flex;align-items:center;gap:18px}
+  .nav-phone{font-family:'Oswald',sans-serif;font-weight:700;font-size:19px;color:#fff;white-space:nowrap}
+  .nav-phone span{color:var(--gold);font-size:12px;display:block;letter-spacing:.12em;font-weight:500}
+  .burger{display:none;flex-direction:column;gap:5px;cursor:pointer;padding:8px}
+  .burger span{width:26px;height:2px;background:#fff}
+
+  /* ============ HERO ============ */
+  .hero{
+    position:relative;min-height:92vh;display:flex;align-items:center;
+    background:
+      linear-gradient(90deg,rgba(8,8,9,.96) 0%,rgba(8,8,9,.86) 40%,rgba(8,8,9,.55) 78%,rgba(8,8,9,.4) 100%),
+      linear-gradient(0deg,var(--black) 4%,rgba(8,8,9,.15) 45%),
+      url('o.jpg') center 28%/cover;
+  }
+  .hero::after{content:"";position:absolute;inset:0;background:linear-gradient(0deg,var(--black),transparent 30%);pointer-events:none}
+  .hero .wrap{position:relative;z-index:2;padding-top:70px;padding-bottom:70px}
+  .hero-badge{
+    display:inline-flex;align-items:center;gap:10px;border:1px solid var(--gold-deep);
+    color:var(--gold-bright);font-family:'Oswald',sans-serif;text-transform:uppercase;
+    letter-spacing:.18em;font-size:11.5px;font-weight:600;padding:9px 16px;border-radius:2px;margin-bottom:28px;
+    background:rgba(201,154,59,.08)
+  }
+  .hero-grid{display:grid;grid-template-columns:1.12fr .88fr;gap:52px;align-items:center}
+  .hero h1{font-size:clamp(38px,5vw,68px);color:#fff;max-width:15ch}
+  .hero h1 em{font-style:italic;color:var(--gold);font-family:'Barlow Semi Condensed',sans-serif}
+  .hero .estd{font-family:'Barlow Semi Condensed',sans-serif;font-style:italic;font-weight:800;color:var(--gold);font-size:clamp(15px,1.6vw,18px);letter-spacing:.03em;text-transform:uppercase;margin-top:20px;display:flex;align-items:center;gap:14px}
+  .hero .estd::before,.hero .estd::after{content:"";height:1px;background:linear-gradient(90deg,var(--gold-deep),transparent);flex:1;max-width:60px}
+  .hero .estd::before{background:linear-gradient(90deg,transparent,var(--gold-deep))}
+  .hero p.sub{font-size:clamp(16px,1.5vw,19px);color:#c9c8c3;max-width:48ch;margin:22px 0 34px}
+  .hero-cta{display:flex;gap:14px;flex-wrap:wrap;align-items:center}
+  .hero-strip{display:flex;gap:34px;margin-top:44px;flex-wrap:wrap;border-top:1px solid var(--line);padding-top:26px}
+  .hero-strip .stat .n{font-family:'Oswald',sans-serif;font-weight:700;font-size:clamp(26px,3.4vw,36px);color:#fff;line-height:1}
+  .hero-strip .stat .n em{color:var(--gold);font-style:normal}
+  .hero-strip .stat .l{font-family:'Oswald',sans-serif;font-size:11.5px;letter-spacing:.13em;text-transform:uppercase;color:var(--smoke);margin-top:8px}
+  /* hero quote form */
+  .hero-form{background:rgba(18,18,21,.82);backdrop-filter:blur(14px);border:1px solid var(--line);border-top:3px solid var(--gold);border-radius:5px;padding:32px 30px 30px;box-shadow:0 40px 90px -40px rgba(0,0,0,.95)}
+  .hero-form .hf-tag{font-family:'Oswald',sans-serif;font-size:11px;letter-spacing:.2em;text-transform:uppercase;color:var(--gold);font-weight:600}
+  .hero-form h3{font-size:26px;color:#fff;margin:8px 0 4px;letter-spacing:-.3px}
+  .hero-form .hf-sub{color:#9d9c97;font-size:14px;margin-bottom:22px}
+  .hero-form .fld{margin-bottom:14px}
+  .hero-form button{width:100%;justify-content:center;margin-top:4px}
+  .hero-form .hf-note{text-align:center;font-size:12.5px;color:var(--smoke);margin-top:14px}
+  .hero-form .hf-note a{color:#cfcec9}
+  .hero-form .hf-note a:hover{color:var(--gold)}
+
+  /* ============ MARQUEE ============ */
+  .marquee{background:var(--gold);color:#1a1204;overflow:hidden;white-space:nowrap;border-top:2px solid #1a1204;border-bottom:2px solid #1a1204}
+  .marquee-track{display:inline-flex;gap:0;animation:scroll 34s linear infinite}
+  .marquee-track span{font-family:'Barlow Semi Condensed',sans-serif;font-style:italic;font-weight:800;font-size:22px;text-transform:uppercase;letter-spacing:.02em;padding:14px 34px;display:inline-flex;align-items:center}
+  .marquee-track span::after{content:"◆";margin-left:34px;font-size:11px;opacity:.5;font-style:normal}
+  @keyframes scroll{to{transform:translateX(-50%)}}
+
+  /* ============ SECTION SHELL ============ */
+  .band{padding:110px 0}
+  .band.paper{background:var(--paper);color:#1a1a1a}
+  .band.ink{background:var(--ink)}
+  .sec-head{max-width:720px;margin-bottom:56px}
+  .sec-head h2{font-size:clamp(32px,4.4vw,54px);margin:18px 0 0}
+  .band.paper .sec-head h2{color:#141416}
+  .sec-head p{margin-top:18px;font-size:18px;color:#5a5852}
+  .band.ink .sec-head p{color:#a3a29d}
+
+  /* ============ WHAT WE CARRY (grid) ============ */
+  .cat-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:2px;background:var(--paper-2);border:1px solid var(--paper-2)}
+  .cat{background:var(--paper);padding:38px 32px;transition:.3s var(--ease);position:relative;overflow:hidden}
+  .cat:hover{background:#fff;transform:translateY(-3px);box-shadow:0 20px 50px -20px rgba(0,0,0,.25);z-index:2}
+  .cat .ic{width:52px;height:52px;color:var(--gold-deep);margin-bottom:22px}
+  .cat h3{font-size:22px;color:#161616;letter-spacing:-.2px}
+  .cat p{margin-top:10px;color:#5f5d57;font-size:15.5px}
+  .cat .arw{margin-top:20px;font-family:'Oswald',sans-serif;font-size:13px;letter-spacing:.1em;text-transform:uppercase;color:var(--gold-deep);opacity:0;transform:translateX(-6px);transition:.3s}
+  .cat:hover .arw{opacity:1;transform:translateX(0)}
+
+  /* ============ PRODUCT GRID (Snap-on style, CTA cards) ============ */
+  .prod-note{display:inline-flex;align-items:center;gap:10px;margin-top:22px;padding:11px 18px;border:1px solid var(--line);border-radius:2px;background:rgba(201,154,59,.06);font-family:'Oswald',sans-serif;font-size:13px;letter-spacing:.05em;text-transform:uppercase;color:var(--gold-bright)}
+  .prod-note svg{width:16px;height:16px;color:var(--gold)}
+  .prod-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:22px}
+  .prod{background:var(--panel);border:1px solid var(--line);border-radius:4px;overflow:hidden;display:flex;flex-direction:column;transition:.3s var(--ease)}
+  .prod:hover{border-color:var(--gold-deep);transform:translateY(-5px);box-shadow:0 26px 60px -30px rgba(0,0,0,.8)}
+  .prod .ph{position:relative;aspect-ratio:4/3;overflow:hidden;display:flex;align-items:center;justify-content:center;padding:20px;
+    background:radial-gradient(120% 120% at 50% 25%,#ffffff 0%,#efece3 70%,#e4e0d4 100%)}
+  .prod .ph img{max-width:100%;max-height:100%;width:auto;height:auto;object-fit:contain;transition:.5s var(--ease);mix-blend-mode:multiply}
+  .prod:hover .ph img{transform:scale(1.06)}
+  .prod .chip{position:absolute;top:12px;left:12px;background:rgba(8,8,9,.82);border:1px solid var(--gold-deep);color:var(--gold-bright);font-family:'Oswald',sans-serif;font-size:10.5px;letter-spacing:.14em;text-transform:uppercase;padding:5px 10px;border-radius:2px;backdrop-filter:blur(3px)}
+  .prod .pb{padding:22px 22px 24px;display:flex;flex-direction:column;flex:1}
+  .prod .pb h3{font-size:19px;color:#fff;letter-spacing:-.2px;line-height:1.12}
+  .prod .pb .spec{color:#9d9c97;font-size:14px;margin-top:8px;flex:1}
+  .prod .pb .pr{display:flex;align-items:center;justify-content:space-between;gap:12px;margin-top:20px;padding-top:18px;border-top:1px solid var(--line)}
+  .prod .pb .pr .ask{font-family:'Barlow Semi Condensed',sans-serif;font-style:italic;font-weight:800;font-size:15px;color:var(--gold);text-transform:uppercase;letter-spacing:.02em}
+  .prod .pb .pr .req{font-family:'Oswald',sans-serif;font-size:13px;letter-spacing:.06em;text-transform:uppercase;font-weight:600;color:#fff;display:inline-flex;align-items:center;gap:7px;transition:.2s}
+  .prod:hover .pb .pr .req{color:var(--gold-bright)}
+  .prod .pb .pr .req svg{width:15px;height:15px;transition:.25s var(--ease)}
+  .prod:hover .pb .pr .req svg{transform:translateX(3px)}
+
+  /* ============ HERITAGE / STORY split ============ */
+  .split{display:grid;grid-template-columns:1.05fr .95fr;gap:0;align-items:stretch}
+  .split .media{position:relative;min-height:520px;background:#000 center/cover;
+    background-image:linear-gradient(120deg,rgba(0,0,0,.25),rgba(0,0,0,.55)),url('o.jpg')}
+  .split .media{background-position:center 30%}
+  .split .media .est{position:absolute;left:0;bottom:0;background:var(--gold);color:#1a1204;padding:22px 30px;font-family:'Oswald',sans-serif}
+  .split .media .est .yr{font-size:44px;font-weight:700;line-height:.9;font-style:italic;font-family:'Barlow Semi Condensed',sans-serif}
+  .split .media .est .lb{font-size:11px;letter-spacing:.16em;text-transform:uppercase;margin-top:4px}
+  .split .body{background:var(--panel);padding:70px 60px;display:flex;flex-direction:column;justify-content:center}
+  .split .body h2{font-size:clamp(30px,4vw,46px);color:#fff}
+  .split .body h2 em{color:var(--gold);font-style:italic;font-family:'Barlow Semi Condensed',sans-serif}
+  .split .body p{margin-top:22px;color:#b9b8b3;font-size:17px}
+  .usp-list{margin-top:34px;display:flex;flex-direction:column;gap:18px}
+  .usp-list .u{display:flex;gap:16px;align-items:flex-start}
+  .usp-list .u svg{width:24px;height:24px;color:var(--gold);flex:none;margin-top:2px}
+  .usp-list .u b{color:#fff;font-family:'Oswald',sans-serif;text-transform:uppercase;letter-spacing:.03em;font-weight:600;font-size:16px}
+  .usp-list .u span{display:block;color:#9d9c97;font-size:15px;margin-top:2px}
+
+  /* ============ WHO WE SERVE ============ */
+  .serve-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:24px}
+  .serve{border:1px solid var(--line);border-radius:3px;padding:40px 32px;background:linear-gradient(180deg,var(--panel),var(--ink));transition:.3s var(--ease)}
+  .serve:hover{border-color:var(--gold-deep);transform:translateY(-4px)}
+  .serve .num{font-family:'Barlow Semi Condensed',sans-serif;font-style:italic;font-weight:800;font-size:15px;color:var(--gold);letter-spacing:.1em}
+  .serve h3{font-size:24px;color:#fff;margin:14px 0 12px}
+  .serve p{color:#a3a29d;font-size:15.5px}
+
+  /* ============ GALLERY ============ */
+  .gallery{display:grid;grid-template-columns:repeat(4,1fr);grid-auto-rows:200px;gap:12px}
+  .gallery figure{position:relative;overflow:hidden;background:#111;border-radius:2px}
+  .gallery figure.tall{grid-row:span 2}
+  .gallery figure.wide{grid-column:span 2}
+  .gallery img{width:100%;height:100%;object-fit:cover;transition:.6s var(--ease);filter:grayscale(.15) contrast(1.02)}
+  .gallery figure:hover img{transform:scale(1.06)}
+  .gallery figcaption{position:absolute;left:0;bottom:0;right:0;padding:14px 16px;font-family:'Oswald',sans-serif;font-size:12px;letter-spacing:.08em;text-transform:uppercase;color:#fff;background:linear-gradient(0deg,rgba(0,0,0,.8),transparent);opacity:0;transition:.3s}
+  .gallery figure:hover figcaption{opacity:1}
+  .gal-note{margin-top:18px;font-size:13px;color:var(--smoke);font-style:italic}
+
+  /* ============ CTA BAND ============ */
+  .cta-band{background:linear-gradient(120deg,#151006,#241a08 60%,#3a2a0c);border-top:2px solid var(--gold);position:relative;overflow:hidden}
+  .cta-band::before{content:"";position:absolute;right:-80px;top:-60px;width:420px;height:420px;background:radial-gradient(circle,rgba(201,154,59,.22),transparent 65%)}
+  .cta-band .wrap{position:relative;z-index:2;display:flex;align-items:center;justify-content:space-between;gap:40px;flex-wrap:wrap;padding:70px 24px}
+  .cta-band h2{font-size:clamp(30px,4.4vw,52px);color:#fff;max-width:16ch}
+  .cta-band h2 em{color:var(--gold);font-style:italic;font-family:'Barlow Semi Condensed',sans-serif}
+  .cta-band .big-phone{font-family:'Oswald',sans-serif;font-weight:700;font-size:clamp(30px,4vw,44px);color:#fff;margin-top:8px;display:inline-block}
+  .cta-band .big-phone:hover{color:var(--gold-bright)}
+
+  /* ============ CONTACT ============ */
+  .contact{display:grid;grid-template-columns:1fr 1fr;gap:56px;align-items:start}
+  .contact .info h2{font-size:clamp(30px,4vw,46px);color:#fff}
+  .info-rows{margin-top:34px;display:flex;flex-direction:column;gap:2px}
+  .info-rows .row{display:flex;gap:18px;padding:22px 0;border-bottom:1px solid var(--line);align-items:flex-start}
+  .info-rows .row svg{width:24px;height:24px;color:var(--gold);flex:none}
+  .info-rows .row .k{font-family:'Oswald',sans-serif;text-transform:uppercase;font-size:12px;letter-spacing:.14em;color:var(--smoke)}
+  .info-rows .row .v{color:#fff;font-size:17px;margin-top:3px}
+  .info-rows .row .v a:hover{color:var(--gold)}
+  .socials{display:flex;gap:12px;margin-top:30px}
+  .socials a{width:44px;height:44px;border:1px solid var(--line);border-radius:2px;display:grid;place-items:center;color:#cfcec9;transition:.25s}
+  .socials a:hover{border-color:var(--gold);color:var(--gold);transform:translateY(-2px)}
+  .socials svg{width:20px;height:20px}
+  form.card{background:var(--panel);border:1px solid var(--line);border-radius:4px;padding:40px}
+  form.card h3{font-size:24px;color:#fff;margin-bottom:6px}
+  form.card .fm{color:#9d9c97;font-size:14.5px;margin-bottom:26px}
+  .fld{margin-bottom:18px}
+  .fld label{display:block;font-family:'Oswald',sans-serif;font-size:12px;letter-spacing:.1em;text-transform:uppercase;color:#b7b6b1;margin-bottom:8px}
+  .fld input,.fld select,.fld textarea{
+    width:100%;background:var(--ink);border:1px solid var(--line);border-radius:2px;
+    padding:14px 16px;color:#fff;font-family:'Barlow',sans-serif;font-size:15px;transition:.2s}
+  .fld input:focus,.fld select:focus,.fld textarea:focus{outline:none;border-color:var(--gold);background:#161616}
+  .fld textarea{resize:vertical;min-height:120px}
+  .row2{display:grid;grid-template-columns:1fr 1fr;gap:18px}
+  form.card button{width:100%;margin-top:8px;justify-content:center}
+
+  /* ============ FOOTER ============ */
+  footer.ft{background:#08080a;border-top:1px solid var(--line);padding:64px 0 30px}
+  .ft-top{display:grid;grid-template-columns:1.4fr 1fr 1fr;gap:40px;padding-bottom:44px;border-bottom:1px solid var(--line)}
+  .ft .logo-chip{background:var(--paper);display:inline-block;padding:16px 20px;border-radius:3px}
+  .ft .logo-chip img{width:210px}
+  .ft-col h4{font-family:'Oswald',sans-serif;text-transform:uppercase;font-size:13px;letter-spacing:.14em;color:var(--gold);margin-bottom:18px}
+  .ft-col a,.ft-col p{display:block;color:#9d9c97;font-size:15px;margin-bottom:12px}
+  .ft-col a:hover{color:#fff}
+  .ft-blurb{color:#8a8a90;font-size:15px;margin-top:20px;max-width:38ch}
+  .ft-bottom{display:flex;justify-content:space-between;align-items:center;gap:20px;flex-wrap:wrap;padding-top:26px;font-size:13px;color:#6d6d72}
+  .ft-bottom a:hover{color:var(--gold)}
+
+  /* ============ RESPONSIVE ============ */
+  @media(max-width:1000px){
+    .cat-grid,.serve-grid,.prod-grid{grid-template-columns:repeat(2,1fr)}
+    .hero-grid{grid-template-columns:1fr;gap:40px}
+    .hero-form{max-width:520px}
+    .split{grid-template-columns:1fr}
+    .split .media{min-height:340px}
+    .contact{grid-template-columns:1fr}
+    .gallery{grid-template-columns:repeat(2,1fr)}
+    .ft-top{grid-template-columns:1fr 1fr}
+  }
+  @media(max-width:720px){
+    nav.links,.nav-phone span,.topbar .tb-left{display:none}
+    .burger{display:flex}
+    .band{padding:72px 0}
+    .split .body{padding:44px 26px}
+    .cat-grid{grid-template-columns:1fr}
+    .serve-grid{grid-template-columns:1fr}
+    .prod-grid{grid-template-columns:repeat(2,1fr);gap:14px}
+    .row2{grid-template-columns:1fr}
+    .ft-top{grid-template-columns:1fr}
+    .hero-strip{gap:26px}
+  }
+</style>
+</head>
+<body>
+
+<!-- ============ TOP BAR ============ -->
+<div class="topbar">
+  <div class="wrap">
+    <div class="tb-left">California's <strong>first &amp; oldest</strong> tire shop supply distributor</div>
+    <div class="tb-right">
+      <a href="tel:3109656422">📞 (310) 965-6422</a>
+      <span>Mon–Fri 8–4 · Sat 8–12</span>
+      <a href="#contact">Gardena, CA</a>
+    </div>
+  </div>
+</div>
+
+<!-- ============ NAV ============ -->
+<header class="nav">
+  <div class="wrap">
+    <a class="brand" href="#top">
+      <!-- CSS wordmark for dark bg; swap for white/knockout PNG when supplied -->
+      <img class="mark" src="logo.png" alt="" style="background:#f5f3ed;border-radius:4px;padding:4px" />
+      <div>
+        <div class="wm">M.L. BERNIE <span>CO.</span></div>
+        <div class="tag">Tire Shop Supplies &amp; Equipment</div>
+      </div>
+    </a>
+    <nav class="links">
+      <a href="#carry">What We Carry</a>
+      <a href="#products">Catalog</a>
+      <a href="#story">Our Story</a>
+      <a href="#serve">Who We Serve</a>
+      <a href="#gallery">Gallery</a>
+      <a href="#contact">Contact</a>
+    </nav>
+    <div class="nav-cta">
+      <a class="nav-phone" href="tel:3109656422"><span>Call to order</span>(310) 965-6422</a>
+      <a class="btn btn-gold" href="#contact">Get a Quote</a>
+      <div class="burger" onclick="document.querySelector('nav.links').style.display = (getComputedStyle(document.querySelector('nav.links')).display==='none'?'flex':'none')"><span></span><span></span><span></span></div>
+    </div>
+  </div>
+</header>
+
+<!-- ============ HERO ============ -->
+<section class="hero" id="top">
+  <div class="wrap">
+    <div class="hero-grid">
+      <div class="hero-copy">
+        <div class="hero-badge">◆ California's First &amp; Oldest Tire Supply House</div>
+        <h1>Four generations of shops have counted on <em>M.L. Bernie</em>.</h1>
+        <div class="estd">Est. 1940s — Gardena, California</div>
+        <p class="sub">The first tire shop supply distributor in California, and still the one shops call by name. Compressors, air tools, hoses, patches, wheel weights and cement — the same dependable supply, backed by 80&nbsp;years of knowing the trade.</p>
+        <div class="hero-cta">
+          <a class="btn btn-gold" href="tel:3109656422">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.13.96.36 1.9.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.9.34 1.85.57 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+            (310) 965-6422
+          </a>
+          <a class="btn btn-ghost" href="#products">Browse the Catalog</a>
+        </div>
+        <div class="hero-strip">
+          <div class="stat"><div class="n">80<em>+</em></div><div class="l">Years in Business</div></div>
+          <div class="stat"><div class="n">1<em>st</em></div><div class="l">Tire Supply House in CA</div></div>
+          <div class="stat"><div class="n">SoCal<em>-Wide</em></div><div class="l">Delivery &amp; Will-Call</div></div>
+        </div>
+      </div>
+
+      <form class="hero-form" onsubmit="event.preventDefault(); var b=this.querySelector('button'); b.textContent='Thanks — we\'ll call you back'; b.style.background='#2e6b2e'; b.style.color='#fff';">
+        <div class="hf-tag">◆ Fast Response</div>
+        <h3>Get a Quote</h3>
+        <div class="hf-sub">Tell us what you need — a real person gets back to you same day.</div>
+        <div class="fld"><input type="text" required placeholder="Your name" aria-label="Your name" /></div>
+        <div class="fld"><input type="tel" required placeholder="Phone number" aria-label="Phone number" /></div>
+        <div class="fld"><select aria-label="I am a"><option value="" disabled selected>I'm a…</option><option>Tire shop</option><option>Reseller / distributor</option><option>Mobile road service</option><option>Other</option></select></div>
+        <div class="fld"><input type="text" placeholder="What do you need? (optional)" aria-label="What do you need" /></div>
+        <button class="btn btn-gold" type="submit">Request My Quote</button>
+        <div class="hf-note">Or call <a href="tel:3109656422">(310)&nbsp;965-6422</a> · Mon–Fri 8–4</div>
+      </form>
+    </div>
+  </div>
+</section>
+
+<!-- ============ MARQUEE ============ -->
+<div class="marquee">
+  <div class="marquee-track">
+    <span>Air Compressors</span><span>Impact &amp; Air Tools</span><span>Hoses &amp; Fittings</span><span>Patches &amp; Repair</span><span>Wheel Weights</span><span>Mounting Cement &amp; Chemicals</span><span>Valve Stems</span><span>Road Service Kits</span>
+    <span>Air Compressors</span><span>Impact &amp; Air Tools</span><span>Hoses &amp; Fittings</span><span>Patches &amp; Repair</span><span>Wheel Weights</span><span>Mounting Cement &amp; Chemicals</span><span>Valve Stems</span><span>Road Service Kits</span>
+  </div>
+</div>
+
+<!-- ============ WHAT WE CARRY ============ -->
+<section class="band paper" id="carry">
+  <div class="wrap">
+    <div class="sec-head">
+      <span class="eyebrow">What We Carry</span>
+      <h2>Supplies &amp; equipment for the whole shop</h2>
+      <p>The equipment and consumables that keep a tire shop running — in stock and ready to go. <em>[Representative lines from your catalog — send the full product list and I'll refine.]</em></p>
+    </div>
+    <div class="cat-grid">
+      <div class="cat">
+        <svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><rect x="4" y="10" width="16" height="9" rx="1.5"/><path d="M8 10V7a4 4 0 0 1 8 0v3M9 19v2M15 19v2"/></svg>
+        <h3>Air Compressors</h3>
+        <p>Shop compressors and air systems to power every bay — sales and replacement parts.</p>
+        <div class="arw">Ask about pricing →</div>
+      </div>
+      <div class="cat">
+        <svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M14 3l7 7-4 4-7-7 4-4zM10 7L3 14v7h7l7-7"/></svg>
+        <h3>Impact &amp; Air Tools</h3>
+        <p>Impact wrenches, air ratchets, torque sticks, and the accessories that back them up.</p>
+        <div class="arw">Ask about pricing →</div>
+      </div>
+      <div class="cat">
+        <svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M4 6a6 6 0 0 1 12 0v6a4 4 0 0 0 4 4"/><circle cx="20" cy="18" r="2"/><circle cx="4" cy="6" r="1.5"/></svg>
+        <h3>Hoses &amp; Fittings</h3>
+        <p>Air hoses, reels, couplers and fittings built to hold up to daily shop use.</p>
+        <div class="arw">Ask about pricing →</div>
+      </div>
+      <div class="cat">
+        <svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M12 2a10 10 0 1 0 0 20 10 10 0 0 0 0-20z"/><path d="M8 12l3 3 5-6"/></svg>
+        <h3>Patches &amp; Repair</h3>
+        <p>Radial patches, plugs, string repairs, and vulcanizing tools for clean fixes.</p>
+        <div class="arw">Ask about pricing →</div>
+      </div>
+      <div class="cat">
+        <svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><rect x="4" y="4" width="16" height="16" rx="2"/><path d="M9 9h6v6H9z"/></svg>
+        <h3>Wheel Weights</h3>
+        <p>Clip-on and adhesive weights, steel &amp; zinc, coated and uncoated, all sizes.</p>
+        <div class="arw">Ask about pricing →</div>
+      </div>
+      <div class="cat">
+        <svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M6 3h12l-1 6H7L6 3zM7 9v10a2 2 0 0 0 2 2h6a2 2 0 0 0 2-2V9"/></svg>
+        <h3>Cement &amp; Chemicals</h3>
+        <p>Mounting cement, bead sealer, tire lube, cleaners and shop-floor consumables.</p>
+        <div class="arw">Ask about pricing →</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ PRODUCT GRID (Snap-on style, CTA cards) ============ -->
+<section class="band ink" id="products">
+  <div class="wrap">
+    <div class="sec-head">
+      <span class="eyebrow">The Catalog</span>
+      <h2>Shop-ready gear, priced for the trade</h2>
+      <p>A sample of what's on the shelves. We price by account and stock — so instead of a cart, you get a real person who knows the product.</p>
+      <div class="prod-note">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 7h-9M20 12h-9M20 17h-9M4 7h.01M4 12h.01M4 17h.01"/></svg>
+        Trade pricing by account — call or request a quote
+      </div>
+    </div>
+    <div class="prod-grid">
+      <a class="prod" href="#contact">
+        <div class="ph"><span class="chip">Compressors</span><img src="prod-compressor.jpeg" alt="Two-stage vertical shop air compressor" /></div>
+        <div class="pb"><h3>Two-Stage Shop Compressor</h3><p class="spec">Vertical 60-gal, cast-iron pump — built for full-day bay duty.</p>
+          <div class="pr"><span class="ask">Request Pricing</span><span class="req">Get a Quote <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span></div></div>
+      </a>
+      <a class="prod" href="#contact">
+        <div class="ph"><span class="chip">Air Tools</span><img src="prod-impact-wrench.webp" alt="1 inch pneumatic impact wrench" /></div>
+        <div class="pb"><h3>1&quot; Heavy-Duty Impact Wrench</h3><p class="spec">High-torque pneumatic for truck &amp; commercial work.</p>
+          <div class="pr"><span class="ask">Request Pricing</span><span class="req">Get a Quote <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span></div></div>
+      </a>
+      <a class="prod" href="#contact">
+        <div class="ph"><span class="chip">Hoses</span><img src="prod-hose-reel.webp" alt="Retractable air hose reel" /></div>
+        <div class="pb"><h3>Retractable Air Hose Reel</h3><p class="spec">50 ft heavy-duty reel with couplers and fittings.</p>
+          <div class="pr"><span class="ask">Request Pricing</span><span class="req">Get a Quote <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span></div></div>
+      </a>
+      <a class="prod" href="#contact">
+        <div class="ph"><span class="chip">Repair</span><img src="prod-patch-kit.jpg" alt="Tire repair patch and plug kit" /></div>
+        <div class="pb"><h3>Radial Patch &amp; Plug Kit</h3><p class="spec">Complete nail-hole repair kit — plugs, tools &amp; inserts.</p>
+          <div class="pr"><span class="ask">Request Pricing</span><span class="req">Get a Quote <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span></div></div>
+      </a>
+      <a class="prod" href="#contact">
+        <div class="ph"><span class="chip">Wheel Weights</span><img src="prod-wheel-weights.jpg" alt="Clip-on wheel weights" /></div>
+        <div class="pb"><h3>Clip-On Wheel Weights</h3><p class="spec">Full size range, coated finish — sold by the box.</p>
+          <div class="pr"><span class="ask">Request Pricing</span><span class="req">Get a Quote <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span></div></div>
+      </a>
+      <a class="prod" href="#contact">
+        <div class="ph"><span class="chip">Equipment</span><img src="prod-tire-changer.jpg" alt="Manual tire changer machine" /></div>
+        <div class="pb"><h3>Manual Tire Changer</h3><p class="spec">Motorcycle &amp; light-duty changer with bead-breaker stand.</p>
+          <div class="pr"><span class="ask">Request Pricing</span><span class="req">Get a Quote <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span></div></div>
+      </a>
+      <a class="prod" href="#contact">
+        <div class="ph"><span class="chip">Valve Stems</span><img src="prod-valve-stems.jpg" alt="Snap-in TPMS valve stems" /></div>
+        <div class="pb"><h3>Snap-In TPMS Valve Stems</h3><p class="spec">Rubber snap-in stems with hardware — bulk packs.</p>
+          <div class="pr"><span class="ask">Request Pricing</span><span class="req">Get a Quote <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span></div></div>
+      </a>
+      <a class="prod" href="#contact">
+        <div class="ph"><span class="chip">Chemicals</span><img src="prod-rim-sealer.webp" alt="Western Weld rim and bead sealer" /></div>
+        <div class="pb"><h3>Rim &amp; Bead Sealer — 32 oz</h3><p class="spec">Pro rim sealant — case pricing for high-volume lines.</p>
+          <div class="pr"><span class="ask">Request Pricing</span><span class="req">Get a Quote <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span></div></div>
+      </a>
+    </div>
+    <p class="gal-note" style="text-align:center;margin-top:32px">↳ A sample of the catalog — every card links to “Get in Touch.” Send more products &amp; we'll keep building it out.</p>
+  </div>
+</section>
+
+<!-- ============ STORY / HERITAGE ============ -->
+<section class="band ink" id="story" style="padding-top:0;padding-bottom:0">
+  <div class="split">
+    <div class="media">
+      <div class="est"><div class="yr">Since<br>the 40s</div><div class="lb">Gardena · California</div></div>
+    </div>
+    <div class="body">
+      <span class="eyebrow">Our Story</span>
+      <h2 style="margin-top:16px">The <em>original</em> name in California tire supply.</h2>
+      <p>Founded in the 1940s, M.&nbsp;L.&nbsp;Bernie Co. was California's first — and remains its oldest — tire shop supply distributor. It's personal here: our family worked this business for more than 40 years before taking ownership, and we run it the same way our customers build their own shops — by showing up, keeping our word, and stocking what the job actually needs.</p>
+      <div class="usp-list">
+        <div class="u"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 6L9 17l-5-5"/></svg><div><b>First &amp; oldest in California</b><span>Decades of trade knowledge behind every order.</span></div></div>
+        <div class="u"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 6L9 17l-5-5"/></svg><div><b>Built for resellers &amp; road service</b><span>Wholesale supply for tire shops and mobile crews alike.</span></div></div>
+        <div class="u"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 6L9 17l-5-5"/></svg><div><b>Real people, one phone call away</b><span>Talk to someone who knows the product — not a call center.</span></div></div>
+      </div>
+      <a class="btn btn-gold" href="#contact" style="margin-top:36px;align-self:flex-start">Talk to Our Team</a>
+    </div>
+  </div>
+</section>
+
+<!-- ============ WHO WE SERVE ============ -->
+<section class="band" id="serve">
+  <div class="wrap">
+    <div class="sec-head">
+      <span class="eyebrow">Who We Serve</span>
+      <h2>Built for the people who move tires</h2>
+      <p>If tires are your business, they're ours too. We supply the operations that keep Southern California rolling.</p>
+    </div>
+    <div class="serve-grid">
+      <div class="serve"><div class="num">01</div><h3>Tire Shops</h3><p>Keep your bays stocked and moving with dependable supply and fast will-call pickup in Gardena.</p></div>
+      <div class="serve"><div class="num">02</div><h3>Resellers &amp; Distributors</h3><p>Wholesale volume pricing and a deep catalog to stock your own shelves and customers.</p></div>
+      <div class="serve"><div class="num">03</div><h3>Mobile Road Service</h3><p>Complete road-service kits and consumables for crews working out of the truck, every day.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ GALLERY ============ -->
+<section class="band ink" id="gallery">
+  <div class="wrap">
+    <div class="sec-head">
+      <span class="eyebrow">Gallery</span>
+      <h2>Inside the warehouse</h2>
+      <p>A look at the inventory, the equipment, and the team. <em>[Placeholder photos — swap for real shots of the Gardena warehouse &amp; product.]</em></p>
+    </div>
+    <div class="gallery">
+      <figure class="tall"><img src="https://images.unsplash.com/photo-1449965408869-eaa3f722e40d?q=80&w=1200&auto=format&fit=crop" alt="Tires"><figcaption>Inventory on hand</figcaption></figure>
+      <figure class="wide"><img src="https://images.unsplash.com/photo-1486262715619-67b85e0b08d3?q=80&w=1400&auto=format&fit=crop" alt="Warehouse"><figcaption>Warehouse floor</figcaption></figure>
+      <figure><img src="https://images.unsplash.com/photo-1607860108855-64acf2078ed9?q=80&w=1000&auto=format&fit=crop" alt="Tire service"><figcaption>Service equipment</figcaption></figure>
+      <figure><img src="https://images.unsplash.com/photo-1567789884554-0b844b597180?q=80&w=1000&auto=format&fit=crop" alt="Tools"><figcaption>Shop tools</figcaption></figure>
+      <figure class="wide"><img src="https://images.unsplash.com/photo-1580983561371-7f4b242d8ec0?q=80&w=1400&auto=format&fit=crop" alt="Tire stacks"><figcaption>Ready to ship</figcaption></figure>
+      <figure><img src="https://images.unsplash.com/photo-1619642751034-765dfdf7c58e?q=80&w=1000&auto=format&fit=crop" alt="Equipment"><figcaption>Balancers &amp; changers</figcaption></figure>
+    </div>
+    <p class="gal-note">↳ These are labeled stock placeholders. Send real warehouse/product photos and I'll drop them straight in.</p>
+  </div>
+</section>
+
+<!-- ============ CTA BAND ============ -->
+<section class="cta-band">
+  <div class="wrap">
+    <div>
+      <h2>Need it for the job? <em>We've got it.</em></h2>
+      <p style="color:#c9b98f;margin-top:14px;font-size:18px">Call and talk to someone who knows tire supply.</p>
+    </div>
+    <div style="text-align:right">
+      <a class="big-phone" href="tel:3109656422">(310) 965-6422</a><br>
+      <a class="btn btn-gold" href="#contact" style="margin-top:14px">Request a Quote</a>
+    </div>
+  </div>
+</section>
+
+<!-- ============ CONTACT ============ -->
+<section class="band" id="contact">
+  <div class="wrap">
+    <div class="contact">
+      <div class="info">
+        <span class="eyebrow">Get in Touch</span>
+        <h2 style="margin-top:16px">Order, quote, or ask us anything.</h2>
+        <div class="info-rows">
+          <div class="row"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.13.96.36 1.9.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.9.34 1.85.57 2.81.7A2 2 0 0 1 22 16.92z"/></svg><div><div class="k">Phone</div><div class="v"><a href="tel:3109656422">(310) 965-6422</a></div></div></div>
+          <div class="row"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m22 7-10 5L2 7"/></svg><div><div class="k">Email</div><div class="v"><a href="mailto:MLBERNIECO@GMAIL.COM">MLBERNIECO@GMAIL.COM</a></div></div></div>
+          <div class="row"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg><div><div class="k">Warehouse</div><div class="v">1105 W. 190th Street, Unit B<br>Gardena, CA 90248</div></div></div>
+          <div class="row"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 3"/></svg><div><div class="k">Hours</div><div class="v">Mon–Fri 8am–4pm · Sat 8am–Noon<br><span style="color:#9d9c97;font-size:14px">Sun &amp; holidays closed</span></div></div></div>
+        </div>
+        <div class="socials">
+          <a href="https://instagram.com/mlbernieco" aria-label="Instagram"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none"/></svg></a>
+          <a href="https://facebook.com/MLBernieCo" aria-label="Facebook"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg></a>
+        </div>
+      </div>
+
+      <form class="card" onsubmit="event.preventDefault(); this.querySelector('button').textContent='Thanks — we\'ll be in touch'; this.querySelector('button').style.background='#2e6b2e'; this.querySelector('button').style.color='#fff';">
+        <h3>Request a Quote</h3>
+        <div class="fm">Tell us what you need and we'll get back to you fast. <em>[Wire to form handler / Shopify / email on launch.]</em></div>
+        <div class="row2">
+          <div class="fld"><label>Name</label><input type="text" required placeholder="Your name" /></div>
+          <div class="fld"><label>Business</label><input type="text" placeholder="Shop / company" /></div>
+        </div>
+        <div class="row2">
+          <div class="fld"><label>Phone</label><input type="tel" required placeholder="(310) 000-0000" /></div>
+          <div class="fld"><label>Email</label><input type="email" placeholder="you@email.com" /></div>
+        </div>
+        <div class="fld"><label>I'm a…</label><select><option>Tire shop</option><option>Reseller / distributor</option><option>Mobile road service</option><option>Other</option></select></div>
+        <div class="fld"><label>What do you need?</label><textarea placeholder="Products, quantities, questions…"></textarea></div>
+        <button class="btn btn-gold" type="submit">Send Request</button>
+      </form>
+    </div>
+  </div>
+</section>
+
+<!-- ============ FOOTER ============ -->
+<footer class="ft">
+  <div class="wrap">
+    <div class="ft-top">
+      <div class="ft-col">
+        <div class="logo-chip"><img src="logo.png" alt="M. L. Bernie Co." /></div>
+        <p class="ft-blurb">California's first and oldest tire shop supply distributor. Supplying tire shops, resellers, and road-service crews across Southern California.</p>
+      </div>
+      <div class="ft-col">
+        <h4>Explore</h4>
+        <a href="#carry">What We Carry</a>
+        <a href="#story">Our Story</a>
+        <a href="#serve">Who We Serve</a>
+        <a href="#gallery">Gallery</a>
+        <a href="#contact">Contact</a>
+      </div>
+      <div class="ft-col">
+        <h4>Contact</h4>
+        <a href="tel:3109656422">(310) 965-6422</a>
+        <a href="mailto:MLBERNIECO@GMAIL.COM">MLBERNIECO@GMAIL.COM</a>
+        <p>1105 W. 190th St, Unit B<br>Gardena, CA 90248</p>
+        <p>Mon–Fri 8–4 · Sat 8–12</p>
+      </div>
+    </div>
+    <div class="ft-bottom">
+      <div>© <span id="yr"></span> M. L. Bernie Co. Inc. All rights reserved.</div>
+      <div><a href="https://instagram.com/mlbernieco">Instagram</a> · <a href="https://facebook.com/MLBernieCo">Facebook</a></div>
+    </div>
+  </div>
+</footer>
+
+<script>document.getElementById('yr').textContent=new Date().getFullYear();</script>
+</body>
+</html>
