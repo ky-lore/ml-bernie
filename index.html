@@ -224,15 +224,12 @@
   .gallery figcaption{position:absolute;left:0;bottom:0;right:0;padding:14px 16px;font-family:'Oswald',sans-serif;font-size:12px;letter-spacing:.08em;text-transform:uppercase;color:#fff;background:linear-gradient(0deg,rgba(0,0,0,.8),transparent);opacity:0;transition:.3s}
   .gallery figure:hover figcaption{opacity:1}
   .gal-note{margin-top:18px;font-size:13px;color:var(--smoke);font-style:italic}
-  .brand-grid{display:grid;grid-template-columns:repeat(5,1fr);gap:18px;margin-top:40px}
-  .brand-tile{background:var(--panel);border:1px solid var(--line);border-radius:4px;overflow:hidden;display:flex;flex-direction:column;transition:.3s var(--ease)}
-  .brand-tile:hover{border-color:var(--gold-deep);transform:translateY(-5px);box-shadow:0 26px 60px -30px rgba(0,0,0,.8)}
-  .brand-tile .bh{height:180px;display:flex;align-items:center;justify-content:center;padding:18px;background:#fff}
-  .brand-tile .bh img{max-width:100%;max-height:100%;width:auto;height:auto;object-fit:contain;transition:.5s var(--ease)}
-  .brand-tile:hover .bh img{transform:scale(1.06)}
-  .brand-tile .bb{padding:14px 16px 16px;border-top:1px solid var(--line)}
-  .brand-tile .bb h4{font-family:'Oswald',sans-serif;font-size:13.5px;letter-spacing:.04em;text-transform:uppercase;color:#fff}
-  .brand-tile .bb .bn{font-size:12px;color:var(--smoke);margin-top:4px}
+  .cat-nav{display:flex;gap:10px;flex-wrap:wrap;margin-top:32px;padding-bottom:28px;border-bottom:1px solid var(--line)}
+  .cat-nav a{font-family:'Oswald',sans-serif;font-size:12.5px;letter-spacing:.06em;text-transform:uppercase;font-weight:600;color:#c9c8c3;border:1px solid var(--line);border-radius:2px;padding:9px 14px;transition:.2s}
+  .cat-nav a:hover{color:var(--gold-bright);border-color:var(--gold-deep)}
+  .cat-block{margin-top:56px;scroll-margin-top:110px}
+  .cat-block:first-of-type{margin-top:40px}
+  .cat-title{font-size:clamp(20px,2.4vw,26px);color:#fff;margin-bottom:22px}
 
   /* ============ CTA BAND ============ */
   .cta-band{background:linear-gradient(120deg,#151006,#241a08 60%,#3a2a0c);border-top:2px solid var(--gold);position:relative;overflow:hidden}
@@ -283,7 +280,6 @@
   /* ============ RESPONSIVE ============ */
   @media(max-width:1000px){
     .cat-grid,.serve-grid,.prod-grid{grid-template-columns:repeat(2,1fr)}
-    .brand-grid{grid-template-columns:repeat(3,1fr)}
     .hero-grid{grid-template-columns:1fr;gap:40px}
     .hero-form{max-width:520px}
     .split{grid-template-columns:1fr}
@@ -302,7 +298,6 @@
     .cat-grid{grid-template-columns:1fr}
     .serve-grid{grid-template-columns:1fr}
     .prod-grid{grid-template-columns:repeat(2,1fr);gap:14px}
-    .brand-grid{grid-template-columns:repeat(2,1fr);gap:12px}
     .row2{grid-template-columns:1fr}
     .ft-top{grid-template-columns:1fr}
     .hero-strip{gap:26px}
@@ -455,109 +450,326 @@
         Trade pricing by account — call or request a quote
       </div>
     </div>
-    <div class="prod-grid">
-      <a class="prod" href="#contact">
-        <div class="ph"><span class="chip">Compressors</span><img src="prod-compressor.jpeg" alt="Two-stage vertical shop air compressor" /></div>
-        <div class="pb"><h3>Two-Stage Shop Compressor</h3><p class="spec">Vertical 60-gal, cast-iron pump — built for full-day bay duty.</p>
-          <div class="pr"><span class="ask">Request Pricing</span><span class="req">Get a Quote <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span></div></div>
-      </a>
-      <a class="prod" href="#contact">
-        <div class="ph"><span class="chip">Air Tools</span><img src="prod-impact-wrench.webp" alt="1 inch pneumatic impact wrench" /></div>
-        <div class="pb"><h3>1&quot; Heavy-Duty Impact Wrench</h3><p class="spec">High-torque pneumatic for truck &amp; commercial work.</p>
-          <div class="pr"><span class="ask">Request Pricing</span><span class="req">Get a Quote <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span></div></div>
-      </a>
-      <a class="prod" href="#contact">
-        <div class="ph"><span class="chip">Hoses</span><img src="prod-hose-reel.webp" alt="Retractable air hose reel" /></div>
-        <div class="pb"><h3>Retractable Air Hose Reel</h3><p class="spec">50 ft heavy-duty reel with couplers and fittings.</p>
-          <div class="pr"><span class="ask">Request Pricing</span><span class="req">Get a Quote <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span></div></div>
-      </a>
-      <a class="prod" href="#contact">
-        <div class="ph"><span class="chip">Repair</span><img src="prod-patch-kit.jpg" alt="Tire repair patch and plug kit" /></div>
-        <div class="pb"><h3>Radial Patch &amp; Plug Kit</h3><p class="spec">Complete nail-hole repair kit — plugs, tools &amp; inserts.</p>
-          <div class="pr"><span class="ask">Request Pricing</span><span class="req">Get a Quote <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span></div></div>
-      </a>
-      <a class="prod" href="#contact">
-        <div class="ph"><span class="chip">Wheel Weights</span><img src="prod-wheel-weights.jpg" alt="Clip-on wheel weights" /></div>
-        <div class="pb"><h3>Clip-On Wheel Weights</h3><p class="spec">Full size range, coated finish — sold by the box.</p>
-          <div class="pr"><span class="ask">Request Pricing</span><span class="req">Get a Quote <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span></div></div>
-      </a>
-      <a class="prod" href="#contact">
-        <div class="ph"><span class="chip">Equipment</span><img src="prod-tire-changer.jpg" alt="Manual tire changer machine" /></div>
-        <div class="pb"><h3>Manual Tire Changer</h3><p class="spec">Motorcycle &amp; light-duty changer with bead-breaker stand.</p>
-          <div class="pr"><span class="ask">Request Pricing</span><span class="req">Get a Quote <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span></div></div>
-      </a>
-      <a class="prod" href="#contact">
-        <div class="ph"><span class="chip">Valve Stems</span><img src="prod-valve-stems.jpg" alt="Snap-in TPMS valve stems" /></div>
-        <div class="pb"><h3>Snap-In TPMS Valve Stems</h3><p class="spec">Rubber snap-in stems with hardware — bulk packs.</p>
-          <div class="pr"><span class="ask">Request Pricing</span><span class="req">Get a Quote <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span></div></div>
-      </a>
-      <a class="prod" href="#contact">
-        <div class="ph"><span class="chip">Chemicals</span><img src="prod-rim-sealer.webp" alt="Western Weld rim and bead sealer" /></div>
-        <div class="pb"><h3>Rim &amp; Bead Sealer — 32 oz</h3><p class="spec">Pro rim sealant — case pricing for high-volume lines.</p>
-          <div class="pr"><span class="ask">Request Pricing</span><span class="req">Get a Quote <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span></div></div>
-      </a>
+    <div class="cat-nav">
+      <a href="#cat-air-tools">Air Tools</a>
+      <a href="#cat-valves">Valves &amp; TPMS</a>
+      <a href="#cat-repair">Repair &amp; Vulcanizing</a>
+      <a href="#cat-plug">Plug &amp; Prep Tools</a>
+      <a href="#cat-hand-tools">Hand Tools</a>
+      <a href="#cat-fittings">Fittings &amp; Inflation</a>
+      <a href="#cat-chemicals">Shop Chemicals</a>
+      <a href="#cat-equipment">Equipment</a>
     </div>
-    <p class="gal-note" style="text-align:center;margin-top:32px">↳ A sample of the catalog — every card links to “Get in Touch.” Send more products &amp; we'll keep building it out.</p>
 
-    <div class="sec-head" style="margin-top:70px;margin-bottom:36px">
-      <span class="eyebrow">Full Line Card</span>
-      <h2 style="font-size:clamp(26px,3.2vw,38px)">Shop by brand</h2>
-      <p style="margin-top:12px">The names that fill our shelves — thousands of SKUs across 13 lines. Don't see yours? We can source it.</p>
+    <div class="cat-block" id="cat-air-tools">
+      <h3 class="cat-title">Air Tools &amp; Impact Wrenches</h3>
+      <div class="prod-grid">
+        <a class="prod" href="#contact">
+          <div class="ph"><span class="chip">Chicago Pneumatic</span><img src="PRODUCTS/CHICAGO-PNEUMATIC/7741-2.jpeg" alt="Chicago Pneumatic composite impact wrench" /></div>
+          <div class="pb"><h3>1/2&quot; Composite Impact Wrench</h3><p class="spec">Red &amp; black pistol-grip impact wrench with extended anvil.</p>
+            <div class="pr"><span class="ask">Request Pricing</span><span class="req">Get a Quote <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span></div></div>
+        </a>
+        <a class="prod" href="#contact">
+          <div class="ph"><span class="chip">Chicago Pneumatic</span><img src="PRODUCTS/CHICAGO-PNEUMATIC/7748-2.jpeg" alt="Chicago Pneumatic heavy-duty impact wrench" /></div>
+          <div class="pb"><h3>Heavy-Duty Impact Wrench</h3><p class="spec">Compact pistol-grip air impact wrench with tapered nose.</p>
+            <div class="pr"><span class="ask">Request Pricing</span><span class="req">Get a Quote <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span></div></div>
+        </a>
+        <a class="prod" href="#contact">
+          <div class="ph"><span class="chip">Chicago Pneumatic</span><img src="PRODUCTS/CHICAGO-PNEUMATIC/7782-6.jpeg" alt="Chicago Pneumatic long anvil impact wrench" /></div>
+          <div class="pb"><h3>1&quot; Long-Anvil Impact Wrench</h3><p class="spec">Industrial impact wrench with extra-long square-drive anvil.</p>
+            <div class="pr"><span class="ask">Request Pricing</span><span class="req">Get a Quote <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span></div></div>
+        </a>
+        <a class="prod" href="#contact">
+          <div class="ph"><span class="chip">Ingersoll Rand</span><img src="PRODUCTS/INGERSOLRAND/2115timax001jpg-sq.webp" alt="Ingersoll Rand titanium impact wrench" /></div>
+          <div class="pb"><h3>3/8&quot; Titanium Impact Wrench</h3><p class="spec">Lightweight titanium-housed pistol-grip air impact wrench.</p>
+            <div class="pr"><span class="ask">Request Pricing</span><span class="req">Get a Quote <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span></div></div>
+        </a>
+        <a class="prod" href="#contact">
+          <div class="ph"><span class="chip">Ingersoll Rand</span><img src="PRODUCTS/INGERSOLRAND/2146q1max_la.webp" alt="Ingersoll Rand quiet impact wrench" /></div>
+          <div class="pb"><h3>3/4&quot; Quiet Impact Wrench</h3><p class="spec">Twin-hammer pistol-grip impact wrench, low-noise design.</p>
+            <div class="pr"><span class="ask">Request Pricing</span><span class="req">Get a Quote <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span></div></div>
+        </a>
+        <a class="prod" href="#contact">
+          <div class="ph"><span class="chip">Ingersoll Rand</span><img src="PRODUCTS/INGERSOLRAND/301bangleddiegrinderljpg-square.webp" alt="Ingersoll Rand angle die grinder" /></div>
+          <div class="pb"><h3>Angle Air Die Grinder</h3><p class="spec">Right-angle pneumatic die grinder with chrome housing.</p>
+            <div class="pr"><span class="ask">Request Pricing</span><span class="req">Get a Quote <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span></div></div>
+        </a>
+      </div>
     </div>
-    <div class="brand-grid">
-      <a class="brand-tile" href="#contact">
-        <div class="bh"><img src="PRODUCTS/CHICAGO-PNEUMATIC/7741-2.jpeg" alt="Chicago Pneumatic products" /></div>
-        <div class="bb"><h4>Chicago Pneumatic</h4><div class="bn">Air tools</div></div>
-      </a>
-      <a class="brand-tile" href="#contact">
-        <div class="bh"><img src="PRODUCTS/DILL/02500-DILL.jpg" alt="Dill Air Controls products" /></div>
-        <div class="bb"><h4>Dill Air Controls</h4><div class="bn">Valves &amp; TPMS</div></div>
-      </a>
-      <a class="brand-tile" href="#contact">
-        <div class="bh"><img src="PRODUCTS/ENFORCE/tc-05.png" alt="Enforce tire changer parts" /></div>
-        <div class="bb"><h4>Enforce</h4><div class="bn">Tire changer parts</div></div>
-      </a>
-      <a class="brand-tile" href="#contact">
-        <div class="bh"><img src="PRODUCTS/GROUP31/11-321.jpg" alt="Group31 wheel weights" /></div>
-        <div class="bb"><h4>Group31</h4><div class="bn">Wheel weights</div></div>
-      </a>
-      <a class="brand-tile" href="#contact">
-        <div class="bh"><img src="PRODUCTS/INGERSOLRAND/2115timax001jpg-sq.webp" alt="Ingersoll Rand air tools" /></div>
-        <div class="bb"><h4>Ingersoll Rand</h4><div class="bn">Impact wrenches</div></div>
-      </a>
-      <a class="brand-tile" href="#contact">
-        <div class="bh"><img src="PRODUCTS/KENTOOL/30609.jpg" alt="Ken-Tool tire tools" /></div>
-        <div class="bb"><h4>Ken-Tool</h4><div class="bn">Tire &amp; wheel tools</div></div>
-      </a>
-      <a class="brand-tile" href="#contact">
-        <div class="bh"><img src="PRODUCTS/KEX/KX361_T.jpg" alt="Kex compressors" /></div>
-        <div class="bb"><h4>Kex</h4><div class="bn">Compressors</div></div>
-      </a>
-      <a class="brand-tile" href="#contact">
-        <div class="bh"><img src="PRODUCTS/MILTON/1803-C8.webp" alt="Milton air fittings" /></div>
-        <div class="bb"><h4>Milton</h4><div class="bn">Fittings &amp; couplers</div></div>
-      </a>
-      <a class="brand-tile" href="#contact">
-        <div class="bh"><img src="PRODUCTS/MYERS/14040_T.jpg" alt="Myers Tire Supply products" /></div>
-        <div class="bb"><h4>Myers Tire Supply</h4><div class="bn">Shop supplies</div></div>
-      </a>
-      <a class="brand-tile" href="#contact">
-        <div class="bh"><img src="PRODUCTS/NORCO/72200D.jpg" alt="Norco lifting equipment" /></div>
-        <div class="bb"><h4>Norco</h4><div class="bn">Lifting equipment</div></div>
-      </a>
-      <a class="brand-tile" href="#contact">
-        <div class="bh"><img src="PRODUCTS/REMA/190-awl-2.webp" alt="Rema Tip Top repair products" /></div>
-        <div class="bb"><h4>Rema Tip Top</h4><div class="bn">Repair &amp; vulcanizing</div></div>
-      </a>
-      <a class="brand-tile" href="#contact">
-        <div class="bh"><img src="PRODUCTS/TECH/164TECH.png" alt="Tech tire repair products" /></div>
-        <div class="bb"><h4>Tech</h4><div class="bn">Patches &amp; plugs</div></div>
-      </a>
-      <a class="brand-tile" href="#contact">
-        <div class="bh"><img src="PRODUCTS/WHEEL-WEIGHTS/20260820_095420.jpg" alt="Wheel weights inventory" /></div>
-        <div class="bb"><h4>Wheel Weights</h4><div class="bn">Clip-on &amp; stick-on</div></div>
-      </a>
+
+    <div class="cat-block" id="cat-valves">
+      <h3 class="cat-title">Valve Stems &amp; TPMS Parts</h3>
+      <div class="prod-grid">
+        <a class="prod" href="#contact">
+          <div class="ph"><span class="chip">Dill Air Controls</span><img src="PRODUCTS/DILL/100-AA-DILL.jpg" alt="Dill brass tire valve stem" /></div>
+          <div class="pb"><h3>Brass Tire Valve Stem</h3><p class="spec">Standard brass snap-in valve core assembly.</p>
+            <div class="pr"><span class="ask">Request Pricing</span><span class="req">Get a Quote <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span></div></div>
+        </a>
+        <a class="prod" href="#contact">
+          <div class="ph"><span class="chip">Dill Air Controls</span><img src="PRODUCTS/DILL/6293c-usa-DILL.jpg" alt="Dill clamp-on valve fitting" /></div>
+          <div class="pb"><h3>Clamp-On Valve Fitting</h3><p class="spec">Brass hose-barb valve fitting with metal clamp bracket.</p>
+            <div class="pr"><span class="ask">Request Pricing</span><span class="req">Get a Quote <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span></div></div>
+        </a>
+        <a class="prod" href="#contact">
+          <div class="ph"><span class="chip">Dill Air Controls</span><img src="PRODUCTS/DILL/d-16-DILL.jpg" alt="Dill metal clamp-in valve stem" /></div>
+          <div class="pb"><h3>Metal Clamp-In Valve Stem</h3><p class="spec">Threaded metal clamp-in tire valve with knurled cap.</p>
+            <div class="pr"><span class="ask">Request Pricing</span><span class="req">Get a Quote <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span></div></div>
+        </a>
+        <a class="prod" href="#contact">
+          <div class="ph"><span class="chip">Dill Air Controls</span><img src="PRODUCTS/DILL/vs-500-wza-DILL.jpg" alt="Dill bent valve extension tool" /></div>
+          <div class="pb"><h3>Bent Valve Extension Tool</h3><p class="spec">Angled chrome extension/wrench tool for hard-to-reach valves.</p>
+            <div class="pr"><span class="ask">Request Pricing</span><span class="req">Get a Quote <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span></div></div>
+        </a>
+        <a class="prod" href="#contact">
+          <div class="ph"><span class="chip">Rema Tip Top</span><img src="PRODUCTS/REMA/194-rema-stem-8-2.webp" alt="Rema self-vulcanizing valve stems 10 pack" /></div>
+          <div class="pb"><h3>5/16&quot; Self-Vulcanizing Stem — 10-Pack</h3><p class="spec">Sealed retail pack of self-vulcanizing valve stems.</p>
+            <div class="pr"><span class="ask">Request Pricing</span><span class="req">Get a Quote <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span></div></div>
+        </a>
+        <a class="prod" href="#contact">
+          <div class="ph"><span class="chip">Rema Tip Top</span><img src="PRODUCTS/REMA/tr-413-snap-in-valve-2.webp" alt="Rema TR-413 snap-in valve" /></div>
+          <div class="pb"><h3>TR-413 Snap-In Valve</h3><p class="spec">Black rubber snap-in tire valve stem.</p>
+            <div class="pr"><span class="ask">Request Pricing</span><span class="req">Get a Quote <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span></div></div>
+        </a>
+        <a class="prod" href="#contact">
+          <div class="ph"><span class="chip">Xtra Seal</span><img src="PRODUCTS/GROUP31/17-20008.jpg" alt="Xtra Seal snap-in valve stem" /></div>
+          <div class="pb"><h3>Snap-In Valve Stem</h3><p class="spec">Black rubber snap-in valve with brass core housing.</p>
+            <div class="pr"><span class="ask">Request Pricing</span><span class="req">Get a Quote <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span></div></div>
+        </a>
+      </div>
     </div>
+
+    <div class="cat-block" id="cat-repair">
+      <h3 class="cat-title">Tire Repair &amp; Vulcanizing</h3>
+      <div class="prod-grid">
+        <a class="prod" href="#contact">
+          <div class="ph"><span class="chip">Tech</span><img src="PRODUCTS/TECH/250UL-TECH-Uni-Seal-Ultra-Patch-Plug-Tire-Repair-300x300.jpg" alt="Tech Uni-Seal Ultra patch plug kit" /></div>
+          <div class="pb"><h3>Uni-Seal Ultra Patch Plug Kit</h3><p class="spec">Combination patch-and-plug tire repair box set.</p>
+            <div class="pr"><span class="ask">Request Pricing</span><span class="req">Get a Quote <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span></div></div>
+        </a>
+        <a class="prod" href="#contact">
+          <div class="ph"><span class="chip">Tech</span><img src="PRODUCTS/TECH/760_Vulcanizing_Fluid.jpg" alt="Tech vulcanizing fluid" /></div>
+          <div class="pb"><h3>Vulcanizing Fluid</h3><p class="spec">Bottled rubber vulcanizing fluid for tire patch application.</p>
+            <div class="pr"><span class="ask">Request Pricing</span><span class="req">Get a Quote <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span></div></div>
+        </a>
+        <a class="prod" href="#contact">
+          <div class="ph"><span class="chip">Myers Tire Supply</span><img src="PRODUCTS/MYERS/94340_T.jpg" alt="Myers fast-dry tire repair cement" /></div>
+          <div class="pb"><h3>Fast-Dry Tire Repair Cement</h3><p class="spec">Metal can of quick-drying rubber cement for tire repairs.</p>
+            <div class="pr"><span class="ask">Request Pricing</span><span class="req">Get a Quote <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span></div></div>
+        </a>
+        <a class="prod" href="#contact">
+          <div class="ph"><span class="chip">Myers Tire Supply</span><img src="PRODUCTS/MYERS/98941_T.jpg" alt="Myers tire repair sealer" /></div>
+          <div class="pb"><h3>Tire Repair Sealer</h3><p class="spec">Bottled liquid sealer for tire repair applications.</p>
+            <div class="pr"><span class="ask">Request Pricing</span><span class="req">Get a Quote <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span></div></div>
+        </a>
+        <a class="prod" href="#contact">
+          <div class="ph"><span class="chip">Rema Tip Top</span><img src="PRODUCTS/REMA/bl-32f-special-blue-cement-2.webp" alt="Rema special blue cement" /></div>
+          <div class="pb"><h3>Special Blue Cement</h3><p class="spec">32 oz. can of blue tire-repair bonding cement.</p>
+            <div class="pr"><span class="ask">Request Pricing</span><span class="req">Get a Quote <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span></div></div>
+        </a>
+        <a class="prod" href="#contact">
+          <div class="ph"><span class="chip">Rema Tip Top</span><img src="PRODUCTS/REMA/rad-110-radial-repair-unit-2.webp" alt="Rema RAD 110 radial repair patch" /></div>
+          <div class="pb"><h3>RAD 110 Radial Repair Patch</h3><p class="spec">Premium radial tire repair patch, boxed retail unit.</p>
+            <div class="pr"><span class="ask">Request Pricing</span><span class="req">Get a Quote <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span></div></div>
+        </a>
+        <a class="prod" href="#contact">
+          <div class="ph"><span class="chip">Xtra Seal</span><img src="PRODUCTS/GROUP31/14-008.jpg" alt="Xtra Seal vulcanizing cement" /></div>
+          <div class="pb"><h3>Vulcanizing Cement</h3><p class="spec">8 oz. can of tire-repair vulcanizing cement.</p>
+            <div class="pr"><span class="ask">Request Pricing</span><span class="req">Get a Quote <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span></div></div>
+        </a>
+      </div>
+    </div>
+
+    <div class="cat-block" id="cat-plug">
+      <h3 class="cat-title">Tire Plug, Reamer &amp; Prep Tools</h3>
+      <div class="prod-grid">
+        <a class="prod" href="#contact">
+          <div class="ph"><span class="chip">Kex</span><img src="PRODUCTS/KEX/KX361_T.jpg" alt="Kex rope-style tire plug inserts" /></div>
+          <div class="pb"><h3>Rope-Style Tire Plug Inserts</h3><p class="spec">Set of rubber string plug inserts for tire punctures.</p>
+            <div class="pr"><span class="ask">Request Pricing</span><span class="req">Get a Quote <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span></div></div>
+        </a>
+        <a class="prod" href="#contact">
+          <div class="ph"><span class="chip">Kex</span><img src="PRODUCTS/KEX/KXCC6_T.jpg" alt="Kex tapered puncture reamer" /></div>
+          <div class="pb"><h3>Tapered Puncture Reamer</h3><p class="spec">Handleless tapered steel reamer for prepping punctures.</p>
+            <div class="pr"><span class="ask">Request Pricing</span><span class="req">Get a Quote <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span></div></div>
+        </a>
+        <a class="prod" href="#contact">
+          <div class="ph"><span class="chip">Kex</span><img src="PRODUCTS/KEX/KXCC8_T.jpg" alt="Kex carbide rasp tool" /></div>
+          <div class="pb"><h3>Carbide Rasp Tool</h3><p class="spec">Textured carbide bur tool for roughing the repair area.</p>
+            <div class="pr"><span class="ask">Request Pricing</span><span class="req">Get a Quote <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span></div></div>
+        </a>
+        <a class="prod" href="#contact">
+          <div class="ph"><span class="chip">Kex</span><img src="PRODUCTS/KEX/KXMX40_T.jpg" alt="Kex rubber prep buffing pads" /></div>
+          <div class="pb"><h3>Rubber Prep Buffing Pads</h3><p class="spec">Set of abrasive prep pads for tire surface buffing.</p>
+            <div class="pr"><span class="ask">Request Pricing</span><span class="req">Get a Quote <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span></div></div>
+        </a>
+        <a class="prod" href="#contact">
+          <div class="ph"><span class="chip">Rema Tip Top</span><img src="PRODUCTS/REMA/190-awl-2.webp" alt="Rema tire repair awl" /></div>
+          <div class="pb"><h3>Tire Repair Awl</h3><p class="spec">Green-handled pointed awl for locating and marking punctures.</p>
+            <div class="pr"><span class="ask">Request Pricing</span><span class="req">Get a Quote <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span></div></div>
+        </a>
+        <a class="prod" href="#contact">
+          <div class="ph"><span class="chip">Xtra Seal</span><img src="PRODUCTS/GROUP31/13-620.jpg" alt="Xtra Seal tapered repair reamer" /></div>
+          <div class="pb"><h3>Tapered Repair Reamer</h3><p class="spec">Long tapered steel reamer tool for puncture preparation.</p>
+            <div class="pr"><span class="ask">Request Pricing</span><span class="req">Get a Quote <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span></div></div>
+        </a>
+        <a class="prod" href="#contact">
+          <div class="ph"><span class="chip">Xtra Seal</span><img src="PRODUCTS/GROUP31/14-100.jpg" alt="Xtra Seal rubber prep buffing solution" /></div>
+          <div class="pb"><h3>Rubber Prep Buffing Solution</h3><p class="spec">32 oz. can of pre-buff surface prep solution.</p>
+            <div class="pr"><span class="ask">Request Pricing</span><span class="req">Get a Quote <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span></div></div>
+        </a>
+      </div>
+    </div>
+
+    <div class="cat-block" id="cat-hand-tools">
+      <h3 class="cat-title">Tire Service Hand Tools</h3>
+      <div class="prod-grid">
+        <a class="prod" href="#contact">
+          <div class="ph"><span class="chip">Ken-Tool</span><img src="PRODUCTS/KENTOOL/30618.jpg" alt="Ken-Tool wheel cover lug wrench" /></div>
+          <div class="pb"><h3>Wheel Cover Lug Wrench</h3><p class="spec">Cast lug-nut wrench for wheel cover removal.</p>
+            <div class="pr"><span class="ask">Request Pricing</span><span class="req">Get a Quote <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span></div></div>
+        </a>
+        <a class="prod" href="#contact">
+          <div class="ph"><span class="chip">Ken-Tool</span><img src="PRODUCTS/KENTOOL/30620.jpg" alt="Ken-Tool double-end lug wrench" /></div>
+          <div class="pb"><h3>Double-End Lug Wrench</h3><p class="spec">Two-socket cast wrench for dual lug-nut sizes.</p>
+            <div class="pr"><span class="ask">Request Pricing</span><span class="req">Get a Quote <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span></div></div>
+        </a>
+        <a class="prod" href="#contact">
+          <div class="ph"><span class="chip">Ken-Tool</span><img src="PRODUCTS/KENTOOL/34644.jpg" alt="Ken-Tool curved tire bead tool" /></div>
+          <div class="pb"><h3>Curved Tire Bead Tool</h3><p class="spec">Hooked-tip steel bar for wheel bead manipulation.</p>
+            <div class="pr"><span class="ask">Request Pricing</span><span class="req">Get a Quote <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span></div></div>
+        </a>
+        <a class="prod" href="#contact">
+          <div class="ph"><span class="chip">Ken-Tool</span><img src="PRODUCTS/KENTOOL/34645.jpg" alt="Ken-Tool dual curved tire irons" /></div>
+          <div class="pb"><h3>Dual Curved Tire Irons</h3><p class="spec">Pair of matched curved-tip steel tire irons.</p>
+            <div class="pr"><span class="ask">Request Pricing</span><span class="req">Get a Quote <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span></div></div>
+        </a>
+        <a class="prod" href="#contact">
+          <div class="ph"><span class="chip">Ken-Tool</span><img src="PRODUCTS/KENTOOL/35429-TG11E-FG-Bead-Breaking-Wedge-3-4-rtl.jpg" alt="Ken-Tool fiberglass bead-breaking wedge" /></div>
+          <div class="pb"><h3>Fiberglass Bead-Breaking Wedge</h3><p class="spec">Long-handled wedge tool for breaking tire beads.</p>
+            <div class="pr"><span class="ask">Request Pricing</span><span class="req">Get a Quote <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span></div></div>
+        </a>
+        <a class="prod" href="#contact">
+          <div class="ph"><span class="chip">Ken-Tool</span><img src="PRODUCTS/KENTOOL/8oh-4-37003-new-england-pattern-hand-drilling-hammers-324x324.jpg" alt="Ken-Tool hand drilling hammer" /></div>
+          <div class="pb"><h3>Hand Drilling Hammer</h3><p class="spec">Cast steel hammer with hardwood handle.</p>
+            <div class="pr"><span class="ask">Request Pricing</span><span class="req">Get a Quote <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span></div></div>
+        </a>
+        <a class="prod" href="#contact">
+          <div class="ph"><span class="chip">Ken-Tool</span><img src="PRODUCTS/KENTOOL/t32-35310-rubber-mallet-2lb.jpg" alt="Ken-Tool 2 pound rubber mallet" /></div>
+          <div class="pb"><h3>2 lb. Rubber Mallet</h3><p class="spec">Wood-handled rubber-head mallet for tire &amp; wheel work.</p>
+            <div class="pr"><span class="ask">Request Pricing</span><span class="req">Get a Quote <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span></div></div>
+        </a>
+      </div>
+    </div>
+
+    <div class="cat-block" id="cat-fittings">
+      <h3 class="cat-title">Air Fittings, Couplers &amp; Inflation Tools</h3>
+      <div class="prod-grid">
+        <a class="prod" href="#contact">
+          <div class="ph"><span class="chip">Milton</span><img src="PRODUCTS/MILTON/1803-C8.webp" alt="Milton chrome quick-connect coupler" /></div>
+          <div class="pb"><h3>Chrome Quick-Connect Coupler</h3><p class="spec">Steel quick-connect air-line coupler socket.</p>
+            <div class="pr"><span class="ask">Request Pricing</span><span class="req">Get a Quote <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span></div></div>
+        </a>
+        <a class="prod" href="#contact">
+          <div class="ph"><span class="chip">Milton</span><img src="PRODUCTS/MILTON/1807-CP5.webp" alt="Milton chrome plug fitting" /></div>
+          <div class="pb"><h3>Chrome Plug Fitting</h3><p class="spec">Male quick-connect plug fitting with NPT threads.</p>
+            <div class="pr"><span class="ask">Request Pricing</span><span class="req">Get a Quote <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span></div></div>
+        </a>
+        <a class="prod" href="#contact">
+          <div class="ph"><span class="chip">Milton</span><img src="PRODUCTS/MILTON/715-C20.webp" alt="Milton brass coupler 10 pack" /></div>
+          <div class="pb"><h3>Brass Coupler — 10-Pack</h3><p class="spec">Bulk pack of brass quick-connect air couplers.</p>
+            <div class="pr"><span class="ask">Request Pricing</span><span class="req">Get a Quote <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span></div></div>
+        </a>
+        <a class="prod" href="#contact">
+          <div class="ph"><span class="chip">Milton</span><img src="PRODUCTS/MILTON/727-CP21.webp" alt="Milton steel plug fitting 10 pack" /></div>
+          <div class="pb"><h3>Steel Plug Fitting — 10-Pack</h3><p class="spec">Bulk pack of steel male plug air fittings.</p>
+            <div class="pr"><span class="ask">Request Pricing</span><span class="req">Get a Quote <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span></div></div>
+        </a>
+        <a class="prod" href="#contact">
+          <div class="ph"><span class="chip">Milton</span><img src="PRODUCTS/MILTON/777-CP37.webp" alt="Milton coupler set retail box" /></div>
+          <div class="pb"><h3>Coupler Set — Retail Box</h3><p class="spec">Branded box of brass quick-connect couplers.</p>
+            <div class="pr"><span class="ask">Request Pricing</span><span class="req">Get a Quote <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span></div></div>
+        </a>
+        <a class="prod" href="#contact">
+          <div class="ph"><span class="chip">Milton</span><img src="PRODUCTS/MILTON/S-555E-DIGITAL-TIRE-INFLATOR.avif" alt="Milton digital tire inflator" /></div>
+          <div class="pb"><h3>Digital Tire Inflator</h3><p class="spec">Red hose-style digital inflator gauge with chuck.</p>
+            <div class="pr"><span class="ask">Request Pricing</span><span class="req">Get a Quote <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span></div></div>
+        </a>
+        <a class="prod" href="#contact">
+          <div class="ph"><span class="chip">Milton</span><img src="PRODUCTS/MILTON/S-568-INFLATOR-DEFLATOR-GAUGE.avif" alt="Milton inflator deflator gauge" /></div>
+          <div class="pb"><h3>Inflator/Deflator Gauge</h3><p class="spec">Pistol-grip digital tire gauge with inflate/deflate trigger.</p>
+            <div class="pr"><span class="ask">Request Pricing</span><span class="req">Get a Quote <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span></div></div>
+        </a>
+      </div>
+    </div>
+
+    <div class="cat-block" id="cat-chemicals">
+      <h3 class="cat-title">Shop Chemicals &amp; Tire Dressings</h3>
+      <div class="prod-grid">
+        <a class="prod" href="#contact">
+          <div class="ph"><span class="chip">Enforce Products</span><img src="PRODUCTS/ENFORCE/tc-05.png" alt="Enforce vinyl leather and rubber dressing" /></div>
+          <div class="pb"><h3>Vinyl, Leather &amp; Rubber Dressing</h3><p class="spec">Professional-strength dressing — gallon jug and pail sizes.</p>
+            <div class="pr"><span class="ask">Request Pricing</span><span class="req">Get a Quote <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span></div></div>
+        </a>
+        <a class="prod" href="#contact">
+          <div class="ph"><span class="chip">Enforce Products</span><img src="PRODUCTS/ENFORCE/tc-105.png" alt="Enforce degreaser and concrete cleaner" /></div>
+          <div class="pb"><h3>Degreaser &amp; Concrete Cleaner</h3><p class="spec">Industrial-strength shop floor degreaser, gallon and pail.</p>
+            <div class="pr"><span class="ask">Request Pricing</span><span class="req">Get a Quote <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span></div></div>
+        </a>
+        <a class="prod" href="#contact">
+          <div class="ph"><span class="chip">Enforce Products</span><img src="PRODUCTS/ENFORCE/tc-26.png" alt="Enforce black tire paint water based" /></div>
+          <div class="pb"><h3>Black Tire Paint (Water Based)</h3><p class="spec">Ready-to-use tire dressing paint, pail and bucket sizes.</p>
+            <div class="pr"><span class="ask">Request Pricing</span><span class="req">Get a Quote <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span></div></div>
+        </a>
+        <a class="prod" href="#contact">
+          <div class="ph"><span class="chip">Enforce Products</span><img src="PRODUCTS/ENFORCE/tc-41.png" alt="Enforce Fibrouseal OTR tire sealant" /></div>
+          <div class="pb"><h3>Fibrouseal OTR Tire Sealant</h3><p class="spec">Fibrous tire sealant for off-the-road tires, multiple sizes.</p>
+            <div class="pr"><span class="ask">Request Pricing</span><span class="req">Get a Quote <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span></div></div>
+        </a>
+        <a class="prod" href="#contact">
+          <div class="ph"><span class="chip">Enforce Products</span><img src="PRODUCTS/ENFORCE/tc-60.png" alt="Enforce Slyde tire mounting lube" /></div>
+          <div class="pb"><h3>Slyde Tire Mounting Lube</h3><p class="spec">Tire mounting lubricant, gallon jug and pail.</p>
+            <div class="pr"><span class="ask">Request Pricing</span><span class="req">Get a Quote <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span></div></div>
+        </a>
+        <a class="prod" href="#contact">
+          <div class="ph"><span class="chip">Enforce Products</span><img src="PRODUCTS/ENFORCE/tc-70.png" alt="Enforce tire and tube mounting compound" /></div>
+          <div class="pb"><h3>Tire &amp; Tube Mounting Compound</h3><p class="spec">Rust-inhibiting mounting compound pail for tubes &amp; tires.</p>
+            <div class="pr"><span class="ask">Request Pricing</span><span class="req">Get a Quote <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span></div></div>
+        </a>
+      </div>
+    </div>
+
+    <div class="cat-block" id="cat-equipment">
+      <h3 class="cat-title">Shop Equipment &amp; Machines</h3>
+      <div class="prod-grid">
+        <a class="prod" href="#contact">
+          <div class="ph"><span class="chip">Norco</span><img src="PRODUCTS/NORCO/72200D.jpg" alt="Norco air hydraulic telescoping jack" /></div>
+          <div class="pb"><h3>Air/Hydraulic Telescoping Jack</h3><p class="spec">Telescoping floor jack with T-handle and dual wheels.</p>
+            <div class="pr"><span class="ask">Request Pricing</span><span class="req">Get a Quote <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span></div></div>
+        </a>
+        <a class="prod" href="#contact">
+          <div class="ph"><span class="chip">Norco</span><img src="PRODUCTS/NORCO/81012.jpg" alt="Norco ratcheting jack stand" /></div>
+          <div class="pb"><h3>Jack Stand</h3><p class="spec">Ratcheting steel jack stand with locking pin.</p>
+            <div class="pr"><span class="ask">Request Pricing</span><span class="req">Get a Quote <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span></div></div>
+        </a>
+        <a class="prod" href="#contact">
+          <div class="ph"><span class="chip">Rema Tip Top</span><img src="PRODUCTS/REMA/5641231-rc414-regroover-115v-2.webp" alt="Rema electric tire regroover" /></div>
+          <div class="pb"><h3>Electric Tire Regroover</h3><p class="spec">115V electric regrooving tool with gauges and pistol handle.</p>
+            <div class="pr"><span class="ask">Request Pricing</span><span class="req">Get a Quote <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span></div></div>
+        </a>
+        <a class="prod" href="#contact">
+          <div class="ph"><span class="chip">Xtra Seal</span><img src="PRODUCTS/GROUP31/16-450-25.jpg" alt="Xtra Seal Smart Sensor TPMS tool" /></div>
+          <div class="pb"><h3>Smart Sensor TPMS Tool</h3><p class="spec">Handheld TPMS diagnostic and relearn scan tool.</p>
+            <div class="pr"><span class="ask">Request Pricing</span><span class="req">Get a Quote <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span></div></div>
+        </a>
+        <a class="prod" href="#contact">
+          <div class="ph"><span class="chip">Ingersoll Rand</span><img src="PRODUCTS/INGERSOLRAND/IRP-Product-Photo-Exterior-Truck-Mounted_Honda.webp" alt="Ingersoll Rand gas-powered air compressor" /></div>
+          <div class="pb"><h3>Gas-Powered Air Compressor</h3><p class="spec">Honda-engine truck-mounted two-stage air compressor.</p>
+            <div class="pr"><span class="ask">Request Pricing</span><span class="req">Get a Quote <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span></div></div>
+        </a>
+      </div>
+    </div>
+
+    <p class="gal-note" style="text-align:center;margin-top:32px">↳ A sample of the full line card — every card links to “Get in Touch.” Don't see it here? Ask — we stock or source it.</p>
   </div>
 </section>
 
