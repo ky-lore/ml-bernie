@@ -97,17 +97,17 @@
   .hero{
     position:relative;min-height:92vh;display:flex;align-items:center;
     background:
-      linear-gradient(90deg,rgba(8,8,9,.96) 0%,rgba(8,8,9,.86) 40%,rgba(8,8,9,.55) 78%,rgba(8,8,9,.4) 100%),
-      linear-gradient(0deg,var(--black) 4%,rgba(8,8,9,.15) 45%),
-      url('o.jpg') center 28%/cover;
+      linear-gradient(90deg,rgba(8,8,9,.82) 0%,rgba(8,8,9,.62) 40%,rgba(8,8,9,.32) 78%,rgba(8,8,9,.18) 100%),
+      linear-gradient(0deg,var(--black) 2%,rgba(8,8,9,.05) 40%),
+      url('hero-poster.jpg') center 28%/cover;
     overflow:hidden;
   }
   .hero-video{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;z-index:0}
   .hero::before{content:"";position:absolute;inset:0;z-index:1;background:
-      linear-gradient(90deg,rgba(8,8,9,.96) 0%,rgba(8,8,9,.86) 40%,rgba(8,8,9,.55) 78%,rgba(8,8,9,.4) 100%),
-      linear-gradient(0deg,var(--black) 4%,rgba(8,8,9,.15) 45%);
+      linear-gradient(90deg,rgba(8,8,9,.82) 0%,rgba(8,8,9,.62) 40%,rgba(8,8,9,.32) 78%,rgba(8,8,9,.18) 100%),
+      linear-gradient(0deg,var(--black) 2%,rgba(8,8,9,.05) 40%);
     pointer-events:none}
-  .hero::after{content:"";position:absolute;inset:0;z-index:1;background:linear-gradient(0deg,var(--black),transparent 30%);pointer-events:none}
+  .hero::after{content:"";position:absolute;inset:0;z-index:1;background:linear-gradient(0deg,var(--black),transparent 18%);pointer-events:none}
   .hero .wrap{position:relative;z-index:2;padding-top:70px;padding-bottom:70px}
   .hero-badge{
     display:inline-flex;align-items:center;gap:10px;border:1px solid var(--gold-deep);
@@ -189,7 +189,7 @@
   /* ============ HERITAGE / STORY split ============ */
   .split{display:grid;grid-template-columns:1.05fr .95fr;gap:0;align-items:stretch}
   .split .media{position:relative;min-height:520px;background:#000 center/cover;
-    background-image:linear-gradient(120deg,rgba(0,0,0,.25),rgba(0,0,0,.55)),url('o.jpg')}
+    background-image:linear-gradient(120deg,rgba(0,0,0,.1),rgba(0,0,0,.35)),url('hero-poster.jpg')}
   .split .media{background-position:center 30%}
   .split .media .est{position:absolute;left:0;bottom:0;background:var(--gold);color:#1a1204;padding:22px 30px;font-family:'Oswald',sans-serif}
   .split .media .est .yr{font-size:44px;font-weight:700;line-height:.9;font-style:italic;font-family:'Barlow Semi Condensed',sans-serif}
@@ -346,9 +346,8 @@
   <div class="wrap">
     <div class="hero-grid">
       <div class="hero-copy">
-        <img class="emblem" src="logo-mark-light.png" alt="" aria-hidden="true" />
         <div class="hero-badge">◆ California's First &amp; Oldest Tire Supply House</div>
-        <h1>Four generations of shops have counted on <em>M.L. Bernie</em>.</h1>
+        <h1>Three generations of shops have counted on <em>M.L. Bernie</em>.</h1>
         <div class="estd">Est. 1940s — Gardena, California</div>
         <p class="sub">The first tire shop supply distributor in California, and still the one shops call by name. Compressors, air tools, hoses, patches, wheel weights and cement — the same dependable supply, backed by 80&nbsp;years of knowing the trade.</p>
         <div class="hero-cta">
@@ -824,7 +823,7 @@
     <div class="gallery">
       <figure class="tall"><img src="https://images.unsplash.com/photo-1449965408869-eaa3f722e40d?q=80&w=1200&auto=format&fit=crop" alt="Tires"><figcaption>Inventory on hand</figcaption></figure>
       <figure class="wide"><img src="https://images.unsplash.com/photo-1486262715619-67b85e0b08d3?q=80&w=1400&auto=format&fit=crop" alt="Warehouse"><figcaption>Warehouse floor</figcaption></figure>
-      <figure><img src="https://images.unsplash.com/photo-1607860108855-64acf2078ed9?q=80&w=1000&auto=format&fit=crop" alt="Tire service"><figcaption>Service equipment</figcaption></figure>
+      <figure><img src="PRODUCTS/REMA/203-f-cold-vulcanizing-fluid-2.webp" alt="Rema cold vulcanizing fluid and repair supplies"><figcaption>Vulcanizing &amp; repair</figcaption></figure>
       <figure><img src="https://images.unsplash.com/photo-1567789884554-0b844b597180?q=80&w=1000&auto=format&fit=crop" alt="Tools"><figcaption>Shop tools</figcaption></figure>
       <figure class="wide"><img src="https://images.unsplash.com/photo-1580983561371-7f4b242d8ec0?q=80&w=1400&auto=format&fit=crop" alt="Tire stacks"><figcaption>Ready to ship</figcaption></figure>
       <figure><img src="https://images.unsplash.com/photo-1619642751034-765dfdf7c58e?q=80&w=1000&auto=format&fit=crop" alt="Equipment"><figcaption>Balancers &amp; changers</figcaption></figure>
