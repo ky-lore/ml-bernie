@@ -193,21 +193,23 @@
   .prod .pb .pr .req svg{width:15px;height:15px;transition:.25s var(--ease)}
   .prod:hover .pb .pr .req svg{transform:translateX(3px)}
 
-  /* ============ HERITAGE / STORY ============ */
-  .story-hero{position:relative;margin:0 0 64px;border-radius:3px;overflow:hidden;aspect-ratio:16/7;background:#000}
-  .story-hero img{width:100%;height:100%;object-fit:cover;object-position:center 35%}
-  .story-hero .est{position:absolute;left:0;bottom:0;background:var(--gold);color:#1a1204;padding:22px 30px;font-family:'Oswald',sans-serif}
-  .story-hero .est .yr{font-size:44px;font-weight:700;line-height:.9;font-style:italic;font-family:'Barlow Semi Condensed',sans-serif}
-  .story-hero .est .lb{font-size:11px;letter-spacing:.16em;text-transform:uppercase;margin-top:4px}
-  .story-body{max-width:760px;margin:0 auto;display:flex;flex-direction:column}
-  .story-body h2{font-size:clamp(32px,4.4vw,54px);color:#fff;margin-top:18px}
-  .story-body h2 em{color:var(--gold);font-style:italic;font-family:'Barlow Semi Condensed',sans-serif}
-  .story-body p{margin-top:22px;color:#b9b8b3;font-size:18px;line-height:1.75}
-  .usp-list{margin-top:34px;display:flex;flex-direction:column;gap:18px}
+  /* ============ HERITAGE / STORY (light, matches About Us) ============ */
+  #story{padding-bottom:80px}
+  .split{display:grid;grid-template-columns:1fr 1fr;gap:64px;align-items:center}
+  .split .media{position:relative;margin:0;border-radius:3px;overflow:hidden;aspect-ratio:4/3;box-shadow:0 18px 40px -22px rgba(0,0,0,.45)}
+  .split .media img{width:100%;height:100%;object-fit:cover;object-position:62% 35%}
+  .split .media .est{position:absolute;left:0;bottom:0;background:var(--gold);color:#1a1204;padding:16px 22px;font-family:'Oswald',sans-serif}
+  .split .media .est .yr{font-size:30px;font-weight:700;line-height:.9;font-style:italic;font-family:'Barlow Semi Condensed',sans-serif}
+  .split .media .est .lb{font-size:10px;letter-spacing:.16em;text-transform:uppercase;margin-top:4px}
+  .split .body{display:flex;flex-direction:column}
+  .split .body .sec-head{margin-bottom:0}
+  .split .body p{margin-top:22px;color:#3b3a36;font-size:18px;line-height:1.75}
+  .usp-list{margin-top:30px;display:flex;flex-direction:column;gap:18px}
   .usp-list .u{display:flex;gap:16px;align-items:flex-start}
-  .usp-list .u svg{width:24px;height:24px;color:var(--gold);flex:none;margin-top:2px}
-  .usp-list .u b{color:#fff;font-family:'Oswald',sans-serif;text-transform:uppercase;letter-spacing:.03em;font-weight:600;font-size:16px}
-  .usp-list .u span{display:block;color:#9d9c97;font-size:15px;margin-top:2px}
+  .usp-list .u svg{width:24px;height:24px;color:var(--gold-deep);flex:none;margin-top:2px}
+  .usp-list .u b{color:#141416;font-family:'Oswald',sans-serif;text-transform:uppercase;letter-spacing:.03em;font-weight:600;font-size:16px}
+  .usp-list .u span{display:block;color:#6d6b64;font-size:15px;margin-top:2px}
+  #about{padding-top:80px;border-top:1px solid var(--paper-2)}
 
   /* ============ ABOUT US ============ */
   .about-body{max-width:760px;margin:0 auto}
@@ -302,14 +304,16 @@
     .cat-grid,.serve-grid,.prod-grid{grid-template-columns:repeat(2,1fr)}
     .hero-grid{grid-template-columns:1fr;gap:40px}
     .hero-form{max-width:520px}
-    .story-hero{aspect-ratio:4/3;margin-bottom:44px}
-    .story-hero .est{padding:14px 18px}
-    .story-hero .est .yr{font-size:30px}
+    .split{grid-template-columns:1fr}
+    .split{gap:36px}
     .contact{grid-template-columns:1fr}
     .gallery{grid-template-columns:repeat(2,1fr)}
     .ft-top{grid-template-columns:1fr 1fr}
   }
   @media(max-width:720px){
+    .split .media .est{padding:10px 14px}
+    .split .media .est .yr{font-size:22px}
+    .split .media .est .lb{font-size:9px}
     nav.links,.nav-phone span,.topbar .tb-left{display:none}
     .burger{display:flex}
     .band{padding:72px 0}
@@ -793,22 +797,26 @@
 </section>
 
 <!-- ============ STORY / HERITAGE ============ -->
-<section class="band ink" id="story">
+<section class="band paper" id="story">
   <div class="wrap">
-    <figure class="story-hero">
-      <img src="about-sign.jpg" alt="The M. L. Bernie Co. family watching the new sign go up on the Gardena warehouse" loading="lazy">
-      <div class="est"><div class="yr">Since<br>the 40s</div><div class="lb">Gardena · California</div></div>
-    </figure>
-    <div class="story-body">
-      <span class="eyebrow">Our Story</span>
-      <h2>The <em>original</em> name in California tire supply.</h2>
-      <p>Founded in the 1940s, M.&nbsp;L.&nbsp;Bernie Co. was California's first — and remains its oldest — tire shop supply distributor. It's personal here: our family worked this business for more than 40 years before taking ownership, and we run it the same way our customers build their own shops — by showing up, keeping our word, and stocking what the job actually needs.</p>
+    <div class="split">
+      <figure class="media">
+        <img src="about-sign.jpg" alt="The M. L. Bernie Co. family watching the new sign go up on the Gardena warehouse" loading="lazy">
+        <div class="est"><div class="yr">Since<br>the 40s</div><div class="lb">Gardena · California</div></div>
+      </figure>
+      <div class="body">
+        <div class="sec-head">
+          <span class="eyebrow">Our Story</span>
+          <h2>The original name in California tire supply</h2>
+        </div>
+        <p>Founded in the 1940s, M.&nbsp;L.&nbsp;Bernie Co. was California's first — and remains its oldest — tire shop supply distributor. It's personal here: our family worked this business for more than 40 years before taking ownership, and we run it the same way our customers build their own shops — by showing up, keeping our word, and stocking what the job actually needs.</p>
       <div class="usp-list">
         <div class="u"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 6L9 17l-5-5"/></svg><div><b>First &amp; oldest in California</b><span>Decades of trade knowledge behind every order.</span></div></div>
         <div class="u"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 6L9 17l-5-5"/></svg><div><b>Built for resellers &amp; road service</b><span>Wholesale supply for tire shops and mobile crews alike.</span></div></div>
         <div class="u"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 6L9 17l-5-5"/></svg><div><b>Real people, one phone call away</b><span>Talk to someone who knows the product — not a call center.</span></div></div>
       </div>
-      <a class="btn btn-gold" href="#contact" style="margin-top:36px;align-self:flex-start">Talk to Our Team</a>
+        <a class="btn btn-gold" href="#contact" style="margin-top:34px;align-self:flex-start">Talk to Our Team</a>
+      </div>
     </div>
   </div>
 </section>
