@@ -193,22 +193,25 @@
   .prod .pb .pr .req svg{width:15px;height:15px;transition:.25s var(--ease)}
   .prod:hover .pb .pr .req svg{transform:translateX(3px)}
 
-  /* ============ HERITAGE / STORY (light, matches About Us) ============ */
-  #story{padding-bottom:80px}
-  .split{display:grid;grid-template-columns:1fr 1fr;gap:64px;align-items:center}
-  .split .media{position:relative;margin:0;border-radius:3px;overflow:hidden;aspect-ratio:4/3;box-shadow:0 18px 40px -22px rgba(0,0,0,.45)}
-  .split .media img{width:100%;height:100%;object-fit:cover;object-position:62% 35%}
-  .split .media .est{position:absolute;left:0;bottom:0;background:var(--gold);color:#1a1204;padding:16px 22px;font-family:'Oswald',sans-serif}
-  .split .media .est .yr{font-size:30px;font-weight:700;line-height:.9;font-style:italic;font-family:'Barlow Semi Condensed',sans-serif}
-  .split .media .est .lb{font-size:10px;letter-spacing:.16em;text-transform:uppercase;margin-top:4px}
-  .split .body{display:flex;flex-direction:column}
-  .split .body .sec-head{margin-bottom:0}
+  /* ============ HERITAGE / STORY split ============ */
+  .split{display:grid;grid-template-columns:1.05fr .95fr;gap:0;align-items:stretch}
+  .split .media{position:relative;min-height:520px;background:#000 center/cover;
+    background-image:linear-gradient(120deg,rgba(0,0,0,.1),rgba(0,0,0,.35)),url('about-sign.jpg')}
+  .split .media{background-position:62% 30%}
+  .split .media .est{position:absolute;left:0;bottom:0;background:var(--gold);color:#1a1204;padding:22px 30px;font-family:'Oswald',sans-serif}
+  .split .media .est .yr{font-size:44px;font-weight:700;line-height:.9;font-style:italic;font-family:'Barlow Semi Condensed',sans-serif}
+  .split .media .est .lb{font-size:11px;letter-spacing:.16em;text-transform:uppercase;margin-top:4px}
+  .split .body{background:var(--paper);padding:70px 60px;display:flex;flex-direction:column;justify-content:center;position:relative;overflow:hidden}
+  .split .body .wm-mark{width:min(560px,90%);right:-90px;bottom:-70px;opacity:.05}
+  .body-inner{position:relative;z-index:1;display:flex;flex-direction:column}
+  .split .body h2{font-size:clamp(30px,4vw,46px);color:#141416}
   .split .body p{margin-top:22px;color:#3b3a36;font-size:18px;line-height:1.75}
-  .usp-list{margin-top:30px;display:flex;flex-direction:column;gap:18px}
+  .usp-list{margin-top:34px;display:flex;flex-direction:column;gap:18px}
   .usp-list .u{display:flex;gap:16px;align-items:flex-start}
   .usp-list .u svg{width:24px;height:24px;color:var(--gold-deep);flex:none;margin-top:2px}
   .usp-list .u b{color:#141416;font-family:'Oswald',sans-serif;text-transform:uppercase;letter-spacing:.03em;font-weight:600;font-size:16px}
   .usp-list .u span{display:block;color:#6d6b64;font-size:15px;margin-top:2px}
+
   #about{padding-top:80px;border-top:1px solid var(--paper-2)}
 
   /* ============ ABOUT US ============ */
@@ -305,18 +308,16 @@
     .hero-grid{grid-template-columns:1fr;gap:40px}
     .hero-form{max-width:520px}
     .split{grid-template-columns:1fr}
-    .split{gap:36px}
+    .split .media{min-height:340px}
     .contact{grid-template-columns:1fr}
     .gallery{grid-template-columns:repeat(2,1fr)}
     .ft-top{grid-template-columns:1fr 1fr}
   }
   @media(max-width:720px){
-    .split .media .est{padding:10px 14px}
-    .split .media .est .yr{font-size:22px}
-    .split .media .est .lb{font-size:9px}
     nav.links,.nav-phone span,.topbar .tb-left{display:none}
     .burger{display:flex}
     .band{padding:72px 0}
+    .split .body{padding:44px 26px}
     .brand-logo{height:44px}
     .emblem{height:48px;margin-bottom:18px}
     .cat-grid{grid-template-columns:1fr}
@@ -797,25 +798,23 @@
 </section>
 
 <!-- ============ STORY / HERITAGE ============ -->
-<section class="band paper" id="story">
-  <div class="wrap">
-    <div class="split">
-      <figure class="media">
-        <img src="about-sign.jpg" alt="The M. L. Bernie Co. family watching the new sign go up on the Gardena warehouse" loading="lazy">
-        <div class="est"><div class="yr">Since<br>the 40s</div><div class="lb">Gardena · California</div></div>
-      </figure>
-      <div class="body">
-        <div class="sec-head">
-          <span class="eyebrow">Our Story</span>
-          <h2>The original name in California tire supply</h2>
-        </div>
-        <p>Founded in the 1940s, M.&nbsp;L.&nbsp;Bernie Co. was California's first — and remains its oldest — tire shop supply distributor. It's personal here: our family worked this business for more than 40 years before taking ownership, and we run it the same way our customers build their own shops — by showing up, keeping our word, and stocking what the job actually needs.</p>
+<section class="band paper" id="story" style="padding-top:0;padding-bottom:0">
+  <div class="split">
+    <div class="media">
+      <div class="est"><div class="yr">Since<br>the 40s</div><div class="lb">Gardena · California</div></div>
+    </div>
+    <div class="body">
+      <img class="wm-mark" src="logo-mark-gold.png" alt="" aria-hidden="true" />
+      <div class="body-inner">
+      <span class="eyebrow">Our Story</span>
+      <h2 style="margin-top:16px">The original name in California tire supply.</h2>
+      <p>Founded in the 1940s, M.&nbsp;L.&nbsp;Bernie Co. was California's first — and remains its oldest — tire shop supply distributor. It's personal here: our family worked this business for more than 40 years before taking ownership, and we run it the same way our customers build their own shops — by showing up, keeping our word, and stocking what the job actually needs.</p>
       <div class="usp-list">
         <div class="u"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 6L9 17l-5-5"/></svg><div><b>First &amp; oldest in California</b><span>Decades of trade knowledge behind every order.</span></div></div>
         <div class="u"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 6L9 17l-5-5"/></svg><div><b>Built for resellers &amp; road service</b><span>Wholesale supply for tire shops and mobile crews alike.</span></div></div>
         <div class="u"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 6L9 17l-5-5"/></svg><div><b>Real people, one phone call away</b><span>Talk to someone who knows the product — not a call center.</span></div></div>
       </div>
-        <a class="btn btn-gold" href="#contact" style="margin-top:34px;align-self:flex-start">Talk to Our Team</a>
+      <a class="btn btn-gold" href="#contact" style="margin-top:36px;align-self:flex-start">Talk to Our Team</a>
       </div>
     </div>
   </div>
