@@ -214,6 +214,14 @@
 
   #about{padding-top:80px;border-top:1px solid var(--paper-2)}
 
+  /* ============ LEAD FORMS ============ */
+  .lead-form .hp{position:absolute;left:-9999px;width:1px;height:1px;overflow:hidden}
+  .lead-form .form-msg{font-size:14px;line-height:1.5;color:#f0b4a8}
+  .lead-form .form-msg:empty{display:none}
+  .lead-form .form-msg a{color:var(--gold);text-decoration:underline}
+  .lead-form .bad{border-color:#d9735e !important}
+  .lead-form button[disabled]{opacity:.7;cursor:wait}
+
   /* ============ ABOUT US ============ */
   .about-body{max-width:760px;margin:0 auto}
   .about-body .sec-head{margin-bottom:34px}
@@ -389,14 +397,16 @@
         </div>
       </div>
 
-      <form class="hero-form" onsubmit="event.preventDefault(); var b=this.querySelector('button'); b.textContent='Thanks — we\'ll call you back'; b.style.background='#2e6b2e'; b.style.color='#fff';">
+      <form class="hero-form lead-form" action="/api/leads/quote" method="post" data-form-name="quote" data-form-position="hero" novalidate>
         <div class="hf-tag">◆ Fast Response</div>
         <h3>Get a Quote</h3>
         <div class="hf-sub">Tell us what you need — a real person gets back to you same day.</div>
-        <div class="fld"><input type="text" required placeholder="Your name" aria-label="Your name" /></div>
-        <div class="fld"><input type="tel" required placeholder="Phone number" aria-label="Phone number" /></div>
-        <div class="fld"><select aria-label="I am a"><option value="" disabled selected>I'm a…</option><option>Tire shop</option><option>Reseller / distributor</option><option>Mobile road service</option><option>Other</option></select></div>
-        <div class="fld"><input type="text" placeholder="What do you need? (optional)" aria-label="What do you need" /></div>
+        <div class="fld"><input type="text" name="first_name" required autocomplete="name" placeholder="Your name" aria-label="Your name" /></div>
+        <div class="fld"><input type="tel" name="phone" required autocomplete="tel" placeholder="Phone number" aria-label="Phone number" /></div>
+        <div class="fld"><select name="customer_type" aria-label="I am a"><option value="" disabled selected>I'm a…</option><option>Tire shop</option><option>Reseller / distributor</option><option>Mobile road service</option><option>Other</option></select></div>
+        <div class="fld"><input type="text" name="message" placeholder="What do you need? (optional)" aria-label="What do you need" /></div>
+        <div class="hp" aria-hidden="true"><label>Company website<input type="text" name="company_website" tabindex="-1" autocomplete="off" /></label></div>
+        <div class="form-msg" role="status" aria-live="polite"></div>
         <button class="btn btn-gold" type="submit">Request My Quote</button>
         <div class="hf-note">Or call <a href="tel:3109656422">(310)&nbsp;965-6422</a> · Mon–Fri 8–4</div>
       </form>
@@ -921,20 +931,23 @@
         </div>
       </div>
 
-      <form class="card" onsubmit="event.preventDefault(); this.querySelector('button').textContent='Thanks — we\'ll be in touch'; this.querySelector('button').style.background='#2e6b2e'; this.querySelector('button').style.color='#fff';">
+      <form class="card lead-form" action="/api/leads/contact" method="post" data-form-name="contact" data-form-position="contact" novalidate>
         <h3>Request a Quote</h3>
-        <div class="fm">Tell us what you need and we'll get back to you fast. <em>[Wire to form handler / Shopify / email on launch.]</em></div>
+        <div class="fm">Tell us what you need and we'll get back to you fast.</div>
         <div class="row2">
-          <div class="fld"><label>Name</label><input type="text" required placeholder="Your name" /></div>
-          <div class="fld"><label>Business</label><input type="text" placeholder="Shop / company" /></div>
+          <div class="fld"><label for="cf-name">Name</label><input id="cf-name" type="text" name="first_name" required autocomplete="name" placeholder="Your name" /></div>
+          <div class="fld"><label for="cf-biz">Business</label><input id="cf-biz" type="text" name="business_name" autocomplete="organization" placeholder="Shop / company" /></div>
         </div>
         <div class="row2">
-          <div class="fld"><label>Phone</label><input type="tel" required placeholder="(310) 000-0000" /></div>
-          <div class="fld"><label>Email</label><input type="email" placeholder="you@email.com" /></div>
+          <div class="fld"><label for="cf-phone">Phone</label><input id="cf-phone" type="tel" name="phone" required autocomplete="tel" placeholder="(310) 000-0000" /></div>
+          <div class="fld"><label for="cf-email">Email</label><input id="cf-email" type="email" name="email" autocomplete="email" placeholder="you@email.com" /></div>
         </div>
-        <div class="fld"><label>I'm a…</label><select><option>Tire shop</option><option>Reseller / distributor</option><option>Mobile road service</option><option>Other</option></select></div>
-        <div class="fld"><label>What do you need?</label><textarea placeholder="Products, quantities, questions…"></textarea></div>
+        <div class="fld"><label for="cf-type">I'm a…</label><select id="cf-type" name="customer_type"><option>Tire shop</option><option>Reseller / distributor</option><option>Mobile road service</option><option>Other</option></select></div>
+        <div class="fld"><label for="cf-msg">What do you need?</label><textarea id="cf-msg" name="message" placeholder="Products, quantities, questions…"></textarea></div>
+        <div class="hp" aria-hidden="true"><label>Company website<input type="text" name="company_website" tabindex="-1" autocomplete="off" /></label></div>
+        <div class="form-msg" role="status" aria-live="polite"></div>
         <button class="btn btn-gold" type="submit">Send Request</button>
+        <div class="fm" style="margin:14px 0 0;text-align:center">Or call <a href="tel:3109656422">(310)&nbsp;965-6422</a> · Mon–Fri 8–4</div>
       </form>
     </div>
   </div>
@@ -973,5 +986,67 @@
 </footer>
 
 <script>document.getElementById('yr').textContent=new Date().getFullYear();</script>
+<script>
+/* lead forms: each posts JSON to /api/leads/<slug>; server.py relays it to that
+   form's GHL inbound webhook (URL lives in Railway variables, never in the page). */
+(function () {
+  var ATTRIBUTION = ["gclid", "gbraid", "wbraid", "fbclid", "utm_source", "utm_medium", "utm_campaign", "utm_term", "utm_content"];
+  var CALL = '<a href="tel:3109656422">(310) 965-6422</a>';
+  var params = new URLSearchParams(location.search);
+  // keep attribution for the whole visit; a new tagged landing replaces the whole set so clicks never mix
+  try {
+    if (ATTRIBUTION.some(function (k) { return params.get(k); }))
+      ATTRIBUTION.forEach(function (k) { sessionStorage.setItem("mlb_" + k, params.get(k) || ""); });
+  } catch (err) { /* storage blocked */ }
+  function attr(k) {
+    try { return sessionStorage.getItem("mlb_" + k) || params.get(k) || ""; } catch (err) { return params.get(k) || ""; }
+  }
+  function wait(ms) { return new Promise(function (r) { setTimeout(r, ms); }); }
+
+  document.querySelectorAll("form.lead-form").forEach(function (form) {
+    var shownAt = Date.now();
+    var btn = form.querySelector('button[type="submit"]');
+    var label = btn.textContent;
+    var msg = form.querySelector(".form-msg");
+    form.addEventListener("submit", function (e) {
+      e.preventDefault();
+      if (btn.disabled) return;
+      var data = {};
+      new FormData(form).forEach(function (v, k) { data[k] = String(v).trim(); });
+      var name = form.querySelector('[name="first_name"]'), phone = form.querySelector('[name="phone"]');
+      var badName = !data.first_name, badPhone = (data.phone || "").replace(/\D/g, "").length < 10;
+      name.classList.toggle("bad", badName); phone.classList.toggle("bad", badPhone);
+      if (badName || badPhone) {
+        msg.innerHTML = "Please add your name and a 10-digit phone number, or call " + CALL + ".";
+        (badName ? name : phone).focus();
+        return;
+      }
+      msg.textContent = "";
+      data.form_position = form.getAttribute("data-form-position");
+      data.page_url = location.href.split("#")[0];
+      data.elapsed_ms = Date.now() - shownAt;
+      ATTRIBUTION.forEach(function (k) { data[k] = attr(k); });
+      btn.disabled = true;
+      btn.textContent = "Sending…";
+      // GHL webhooks can drop posts fired instantly, so wait ~1.5s, then send and wait for the reply
+      wait(1500).then(function () {
+        return fetch(form.getAttribute("action"), {
+          method: "POST", headers: { "Content-Type": "application/json" }, body: JSON.stringify(data)
+        });
+      }).then(function (res) {
+        if (!res.ok) throw new Error(res.status);
+        window.dataLayer = window.dataLayer || [];
+        window.dataLayer.push({ event: "generate_lead", form_name: form.getAttribute("data-form-name"), form_position: data.form_position, customer_type: data.customer_type || "" });
+        try { sessionStorage.setItem("mlb_lead_first", (data.first_name || "").split(" ")[0]); } catch (err) { /* storage blocked */ }
+        return wait(500).then(function () { location.href = "/thank-you"; });
+      }).catch(function () {
+        btn.disabled = false;
+        btn.textContent = label;
+        msg.innerHTML = "Sorry, that didn't go through. Please call " + CALL + " and we'll help right away.";
+      });
+    });
+  });
+})();
+</script>
 </body>
 </html>

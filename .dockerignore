@@ -1,0 +1,7 @@
+.git
+.claude
+_build
+Assets
+*.md
+Dockerfile
+ML Bernie Landing Page.mp4
