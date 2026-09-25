@@ -54,6 +54,13 @@ Attribution is kept for the whole visit; a new tagged landing replaces the whole
 5. Add a **Create/Update Contact** action mapping the keys above; then tags (`web-lead`, `form:<slug>`), an internal alert, and an opportunity if they use a pipeline. **Publish** the workflow.
 6. Set the URL in Railway as `GHL_WEBHOOK_URL_<SLUG>` and redeploy.
 
+## Current state (set up 2026-09-25)
+
+- GHL sub-account **M. L Bernie Co.** (location `N89HFSXr7jmnGhVagz4R`): workflows `ENDPOINT - quote` and `ENDPOINT - contact`, both **published**, each Inbound Webhook → Create/Update Contact.
+- Mapped so far (standard fields only): First name, Last name, Phone, Email; `contact` also maps Business Name. `customer_type`, `message`, `form_summary` and attribution arrive in the webhook payload (visible in Execution logs) but aren't stored on the contact yet — create the custom fields listed above and map them if the client wants them on the record.
+- No tags, alerts, or pipeline steps yet — add per the client's process.
+- Railway variables `GHL_WEBHOOK_URL_QUOTE`, `GHL_WEBHOOK_URL_CONTACT`, `PORT=8080` are set; live test leads delivered for both forms ("AM Webhook Test …" contacts — safe to delete).
+
 ## Spam and tracking
 
 - Hidden honeypot field + submissions faster than 2.5s get a fake success and are dropped.
