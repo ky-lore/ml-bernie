@@ -135,13 +135,17 @@
   .hero-strip .stat .n em{color:var(--gold);font-style:normal}
   .hero-strip .stat .l{font-family:'Oswald',sans-serif;font-size:11.5px;letter-spacing:.13em;text-transform:uppercase;color:var(--smoke);margin-top:8px}
   /* hero quote form */
-  .hero-form{background:rgba(18,18,21,.82);backdrop-filter:blur(14px);border:1px solid var(--line);border-top:3px solid var(--gold);border-radius:5px;padding:32px 30px 30px;box-shadow:0 40px 90px -40px rgba(0,0,0,.95)}
-  .hero-form .hf-tag{font-family:'Oswald',sans-serif;font-size:11px;letter-spacing:.2em;text-transform:uppercase;color:var(--gold);font-weight:600}
-  .hero-form h3{font-size:26px;color:#fff;margin:8px 0 4px;letter-spacing:-.3px}
-  .hero-form .hf-sub{color:#9d9c97;font-size:14px;margin-bottom:22px}
-  .hero-form .fld{margin-bottom:14px}
+  .hero-form{background:rgba(18,18,21,.82);backdrop-filter:blur(14px);border:1px solid var(--line);border-top:3px solid var(--gold);border-radius:5px;padding:24px 26px 22px;box-shadow:0 40px 90px -40px rgba(0,0,0,.95)}
+  .hero-form h3{font-size:24px;color:#fff;margin:0 0 4px;letter-spacing:-.3px}
+  .hero-form .hf-sub{color:#9d9c97;font-size:14px;margin-bottom:16px}
+  .hero-grid > .hero-form{align-self:start}
+  .hero-form .fld{margin-bottom:10px}
+  .hero-form .row2{gap:0 12px}
+  .hero-form .fld label{margin-bottom:5px;font-size:11px}
+  .hero-form .fld input,.hero-form .fld select,.hero-form .fld textarea{padding:10px 13px}
+  .hero-form .fld textarea{min-height:62px}
   .hero-form button{width:100%;justify-content:center;margin-top:4px}
-  .hero-form .hf-note{text-align:center;font-size:12.5px;color:var(--smoke);margin-top:14px}
+  .hero-form .hf-note{text-align:center;font-size:12.5px;color:var(--smoke);margin-top:10px}
   .hero-form .hf-note a{color:#cfcec9}
   .hero-form .hf-note a:hover{color:var(--gold)}
 
@@ -396,16 +400,21 @@
       </div>
 
       <form class="hero-form lead-form" action="/api/leads/quote" method="post" data-form-name="quote" data-form-position="hero" novalidate>
-        <div class="hf-tag">◆ Fast Response</div>
-        <h3>Get a Quote</h3>
-        <div class="hf-sub">Tell us what you need — a real person gets back to you same day.</div>
-        <div class="fld"><input type="text" name="first_name" required autocomplete="name" placeholder="Your name" aria-label="Your name" /></div>
-        <div class="fld"><input type="tel" name="phone" required autocomplete="tel" placeholder="Phone number" aria-label="Phone number" /></div>
-        <div class="fld"><select name="customer_type" aria-label="I am a"><option value="" disabled selected>I'm a…</option><option>Tire shop</option><option>Reseller / distributor</option><option>Mobile road service</option><option>Other</option></select></div>
-        <div class="fld"><input type="text" name="message" placeholder="What do you need? (optional)" aria-label="What do you need" /></div>
+        <h3>Request a Quote</h3>
+        <div class="hf-sub">Tell us what you need and we'll get back to you fast.</div>
+        <div class="row2">
+          <div class="fld"><label for="hf-name">Name</label><input id="hf-name" type="text" name="first_name" required autocomplete="name" placeholder="Your name" /></div>
+          <div class="fld"><label for="hf-biz">Business</label><input id="hf-biz" type="text" name="business_name" autocomplete="organization" placeholder="Shop / company" /></div>
+        </div>
+        <div class="row2">
+          <div class="fld"><label for="hf-phone">Phone</label><input id="hf-phone" type="tel" name="phone" required autocomplete="tel" placeholder="(310) 000-0000" /></div>
+          <div class="fld"><label for="hf-email">Email</label><input id="hf-email" type="email" name="email" autocomplete="email" placeholder="you@email.com" /></div>
+        </div>
+        <div class="fld"><label for="hf-type">I'm a…</label><select id="hf-type" name="customer_type"><option>Tire shop</option><option>Reseller / distributor</option><option>Mobile road service</option><option>Other</option></select></div>
+        <div class="fld"><label for="hf-msg">What do you need?</label><textarea id="hf-msg" name="message" placeholder="Products, quantities, questions…"></textarea></div>
         <div class="hp" aria-hidden="true"><label>Company website<input type="text" name="company_website" tabindex="-1" autocomplete="off" /></label></div>
         <div class="form-msg" role="status" aria-live="polite"></div>
-        <button class="btn btn-gold" type="submit">Request My Quote</button>
+        <button class="btn btn-gold" type="submit">Send Request</button>
         <div class="hf-note">Or call <a href="tel:3109656422">(310)&nbsp;965-6422</a> · Mon–Fri 8–4</div>
       </form>
     </div>
