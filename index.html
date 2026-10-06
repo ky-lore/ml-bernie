@@ -91,8 +91,11 @@
   .nav-cta{display:flex;align-items:center;gap:18px}
   .nav-phone{font-family:'Oswald',sans-serif;font-weight:700;font-size:19px;color:#fff;white-space:nowrap}
   .nav-phone span{color:var(--gold);font-size:12px;display:block;letter-spacing:.12em;font-weight:500}
-  .burger{display:none;flex-direction:column;gap:5px;cursor:pointer;padding:8px}
-  .burger span{width:26px;height:2px;background:#fff}
+  .burger{display:none;flex-direction:column;gap:5px;cursor:pointer;padding:8px;background:none;border:0}
+  .burger span{width:26px;height:2px;background:#fff;transition:.25s var(--ease)}
+  .nav-open .burger span:nth-child(1){transform:translateY(7px) rotate(45deg)}
+  .nav-open .burger span:nth-child(2){opacity:0}
+  .nav-open .burger span:nth-child(3){transform:translateY(-7px) rotate(-45deg)}
   .brand-logo{height:54px;width:auto;display:block}
   /* gold tire-emblem watermark used across dark sections */
   .wm-mark{position:absolute;pointer-events:none;user-select:none;opacity:.06;z-index:0}
@@ -324,7 +327,13 @@
     .ft-top{grid-template-columns:1fr 1fr}
   }
   @media(max-width:720px){
-    nav.links,.nav-phone span,.topbar .tb-left{display:none}
+    .nav-phone span,.topbar .tb-left,.nav-cta .btn-gold{display:none}
+    .nav .wrap{position:relative}
+    nav.links{display:none;position:absolute;top:100%;left:0;right:0;flex-direction:column;align-items:stretch;gap:0;
+      background:#0c0c0d;border-bottom:1px solid var(--line);padding:6px 0 12px}
+    nav.links a{padding:15px 24px;font-size:16px;border-top:1px solid var(--line)}
+    nav.links a:first-child{border-top:0}
+    .nav-open nav.links{display:flex}
     .burger{display:flex}
     .band{padding:72px 0}
     .split .body{padding:44px 26px}
@@ -359,7 +368,7 @@
     <a class="brand" href="#top">
       <img class="brand-logo" src="logo-white.png" alt="M. L. Bernie Co. — Tire Shop Supplies &amp; Equipment" />
     </a>
-    <nav class="links">
+    <nav class="links" id="site-links">
       <a href="#carry">What We Carry</a>
       <a href="#products">Catalog</a>
       <a href="#story">Our Story</a>
@@ -370,7 +379,7 @@
     <div class="nav-cta">
       <a class="nav-phone" href="tel:3109656422"><span>Call to order</span>(310) 965-6422</a>
       <a class="btn btn-gold" href="#contact">Get a Quote</a>
-      <div class="burger" onclick="document.querySelector('nav.links').style.display = (getComputedStyle(document.querySelector('nav.links')).display==='none'?'flex':'none')"><span></span><span></span><span></span></div>
+      <button class="burger" type="button" aria-label="Open menu" aria-expanded="false" aria-controls="site-links"><span></span><span></span><span></span></button>
     </div>
   </div>
 </header>
@@ -989,6 +998,21 @@
 </footer>
 
 <script>document.getElementById('yr').textContent=new Date().getFullYear();</script>
+<script>
+/* mobile menu: burger toggles the dropdown; tapping a link or outside closes it */
+(function () {
+  var header = document.querySelector('header.nav'), burger = header.querySelector('.burger');
+  function setOpen(open) {
+    header.classList.toggle('nav-open', open);
+    burger.setAttribute('aria-expanded', open);
+    burger.setAttribute('aria-label', open ? 'Close menu' : 'Open menu');
+  }
+  burger.addEventListener('click', function () { setOpen(!header.classList.contains('nav-open')); });
+  header.querySelectorAll('nav.links a').forEach(function (a) { a.addEventListener('click', function () { setOpen(false); }); });
+  document.addEventListener('click', function (e) { if (!header.contains(e.target)) setOpen(false); });
+  addEventListener('keydown', function (e) { if (e.key === 'Escape') setOpen(false); });
+})();
+</script>
 <script>
 /* lead forms: each posts JSON to /api/leads/<slug>; server.py relays it to that
    form's GHL inbound webhook (URL lives in Railway variables, never in the page). */
